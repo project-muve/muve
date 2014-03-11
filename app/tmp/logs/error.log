@@ -1,0 +1,168 @@
+2014-02-24 21:25:39 Error: [MissingControllerException] Controller class UserController could not be found.
+Exception Attributes: array (
+  'class' => 'UserController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/user
+Stack Trace:
+#0 /var/www/muve/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /var/www/muve/index.php(41): require('/var/www/muve/a...')
+#2 {main}
+2014-03-03 20:36:29 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/css/css/cake.generic.css
+Stack Trace:
+#0 /var/www/muve/app/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /var/www/muve/index.php(41): require('/var/www/muve/a...')
+#2 {main}
+2014-03-03 20:36:29 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/img/img/cake.power.gif
+Stack Trace:
+#0 /var/www/muve/app/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /var/www/muve/index.php(41): require('/var/www/muve/a...')
+#2 {main}
+2014-03-03 20:36:30 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/favicon.ico
+Stack Trace:
+#0 /var/www/muve/app/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /var/www/muve/index.php(41): require('/var/www/muve/a...')
+#2 {main}
+2014-03-03 20:39:33 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/img/img/cake.power.gif
+Stack Trace:
+#0 /var/www/muve/app/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /var/www/muve/index.php(41): require('/var/www/muve/a...')
+#2 {main}
+2014-03-03 20:39:33 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/css/css/cake.generic.css
+Stack Trace:
+#0 /var/www/muve/app/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /var/www/muve/index.php(41): require('/var/www/muve/a...')
+#2 {main}
+2014-03-10 15:25:57 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/img/img/cake.power.gif
+Stack Trace:
+#0 /var/www/muve/app/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /var/www/muve/index.php(41): require('/var/www/muve/a...')
+#2 {main}
+2014-03-10 15:25:57 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/css/css/cake.generic.css
+Stack Trace:
+#0 /var/www/muve/app/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /var/www/muve/index.php(41): require('/var/www/muve/a...')
+#2 {main}
+2014-03-10 15:25:58 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/favicon.ico
+Stack Trace:
+#0 /var/www/muve/app/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /var/www/muve/index.php(41): require('/var/www/muve/a...')
+#2 {main}
+2014-03-10 19:18:12 Error: [MissingControllerException] Controller class RecipiesController could not be found.
+Exception Attributes: array (
+  'class' => 'RecipiesController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/recipies
+Stack Trace:
+#0 /var/www/muve/app/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /var/www/muve/index.php(41): require('/var/www/muve/a...')
+#2 {main}
+2014-03-10 19:18:27 Error: [MissingControllerException] Controller class RecipesController could not be found.
+Exception Attributes: array (
+  'class' => 'RecipesController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/recipes
+Stack Trace:
+#0 /var/www/muve/app/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /var/www/muve/index.php(41): require('/var/www/muve/a...')
+#2 {main}
+2014-03-10 19:18:55 Error: [MissingControllerException] Controller class RecipesController could not be found.
+Exception Attributes: array (
+  'class' => 'RecipesController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/recipes
+Stack Trace:
+#0 /var/www/muve/app/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /var/www/muve/index.php(41): require('/var/www/muve/a...')
+#2 {main}
+2014-03-10 19:18:58 Error: [MissingControllerException] Controller class RecipesController could not be found.
+Exception Attributes: array (
+  'class' => 'RecipesController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/recipes
+Stack Trace:
+#0 /var/www/muve/app/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /var/www/muve/index.php(41): require('/var/www/muve/a...')
+#2 {main}
+2014-03-10 19:21:42 Error: [MissingTableException] Table recipes for model Recipe was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'recipes',
+  'class' => 'Recipe',
+  'ds' => 'default',
+)
+Request URL: /index.php/recipes
+Stack Trace:
+#0 /var/www/muve/lib/Cake/Model/Model.php(3498): Model->setSource('recipes')
+#1 /var/www/muve/lib/Cake/Model/Model.php(2902): Model->getDataSource()
+#2 /var/www/muve/lib/Cake/Model/Model.php(2874): Model->_readDataSource('all', Array)
+#3 /var/www/muve/app/Controller/RecipesController.php(6): Model->find('all')
+#4 [internal function]: RecipesController->index()
+#5 /var/www/muve/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 /var/www/muve/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#7 /var/www/muve/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 /var/www/muve/app/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 /var/www/muve/index.php(41): require('/var/www/muve/a...')
+#10 {main}
+2014-03-10 19:26:15 Error: [MissingTableException] Table recipes for model Recipe was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'recipes',
+  'class' => 'Recipe',
+  'ds' => 'default',
+)
+Request URL: /index.php/recipes
+Stack Trace:
+#0 /var/www/muve/lib/Cake/Model/Model.php(3498): Model->setSource('recipes')
+#1 /var/www/muve/lib/Cake/Model/Model.php(2902): Model->getDataSource()
+#2 /var/www/muve/lib/Cake/Model/Model.php(2874): Model->_readDataSource('all', Array)
+#3 /var/www/muve/app/Controller/RecipesController.php(6): Model->find('all')
+#4 [internal function]: RecipesController->index()
+#5 /var/www/muve/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 /var/www/muve/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#7 /var/www/muve/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 /var/www/muve/app/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 /var/www/muve/index.php(41): require('/var/www/muve/a...')
+#10 {main}
