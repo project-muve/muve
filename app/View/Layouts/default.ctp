@@ -20,31 +20,61 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
-
+//		echo $this->Html->css('cake.generic');
+		echo $this->Html->css(array('style','bootstrap','bootstrap-responsive'));
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
-		</div>
-		<div id="content">
+ <div class="mubar_wrapper hidden-phone">
+<div class="container">	
+<div class="mulogoleft">
+<a href="http://www.missouri.edu">
+<?php echo $this->Html->image('mu_topbar_mainlogo_clear.png', array('alt' => 'University of Missouri')); ?>
+</a>
+</div>
+	<div class="mulogo_right" style="float:right"> <a href="http://msa.missouri.edu"><img src="http://muve.missouri.edu/wp-content/plugins/sl-title-bar/mu_topbar_msa_clear.png" alt="MSA/GPC Sponsored" border="0"></a><a href="http://mizzoulife.missouri.edu"><img src="http://muve.missouri.edu/wp-content/plugins/sl-title-bar/mu_topbar_mizzoulife_clear.png" alt="" border="0"></a></div></div></div>
+
+	<div class="container-fluid">
+<div class="navbar navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/index.php">MUVE</a>
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+              Logged in as <a href="#" class="navbar-link">Username</a>
+            </p>
+            <ul class="nav">
+<?php $this->startIfEmpty('navbar'); ?>
+<li><a href="/index.php">Home</a></li>
+<?php $this->end(); ?>
+              <?php echo $this->fetch('navbar'); ?>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+<div class="row-fluid" id="flash-container">
+<div class="span12" id="flash">
 
 			<?php echo $this->Session->flash(); ?>
-
+</div>
+</div>
+<div id="content">
 			<?php echo $this->fetch('content'); ?>
 		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
+		<div id="footer-wrapper" class="row-fluid">
+			<footer id="footer" class="span12">
+				<p class="text-center">Copyright &copy; <?php echo date("Y"); ?> - Curators of the <a href="http://www.umsystem.edu" target="_blank">University of Missouri</a>.                All rights reserved. <a href="http://www.umsystem.edu/ums/copyright/" target="_blank">DMCA</a> and <a href="http://www.missouri.edu/copyright.php" target="_blank">other copyright information</a>.  An <a href="http://www.missouri.edu/eeo-aa.php" target="_blank">equal opportunity/affirmative action</a> institution.</p>
+			</footer>
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
