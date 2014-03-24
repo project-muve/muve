@@ -15,7 +15,11 @@
 	<?php
 		echo $this->Form->input('user_id');
 		echo $this->Form->input('title');
-		echo $this->Form->input('description');
+	?>
+    <label for="articleDescription">Content</label>
+    <?php echo $this->Tinymce->textarea('article.description'); ?>
+
+	<?php
 		echo $this->Form->input('ts_posted');
 		echo $this->Form->input('ts_updated');
 		echo $this->Form->input('icon');

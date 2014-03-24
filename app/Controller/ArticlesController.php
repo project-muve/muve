@@ -14,7 +14,7 @@ class ArticlesController extends AppController {
  * @var array
  */
 	public $components = array('Paginator');
-
+	//public $helpers = array('Wysiwyg.Wysiwyg');
 /**
  * index method
  *
