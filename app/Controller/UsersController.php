@@ -15,6 +15,26 @@ class UsersController extends AppController {
  */
 	public $components = array('Paginator');
 
+public function beforeFilter() {
+    parent::beforeFilter();
+    // Allow users to register and logout.
+    $this->Auth->allow('add', 'logout');
+}
+
+public function login() {
+    if ($this->request->is('post')) {
+		if ($this->Auth->login()) {
+				return $this->redirect($this->Auth->redirect());
+			}
+			$this->Session->setFlash(__('Invalid username or password, try again'));
+   	}
+	}
+
+	public function logout() {
+		return $this->redirect($this->Auth->logout());
+	}
+
+
 /**
  * index method
  *
@@ -104,4 +124,31 @@ class UsersController extends AppController {
 			$this->Session->setFlash(__('The user could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+
+	public function isAuthorized($user) {
+		if (parent::isAuthorized($user)){
+			return true;
+		}
+				
+		//Determine the id of the user we're looking up
+		if(sizeof($this->request['named'])===0)
+		{
+			$userID = isset($this->request['pass'][0]) ? $this->request['pass'][0] : null;
+		}
+		else 
+		{
+			$userID = isset($this->request['named']['id']) ? $this->request['named']['id'] : null;
+		}		
+
+		//If we're not looking up the user who is logged in, make sure we have the proper admin permissions
+		if ($user['id'] != $userID)
+		{
+			if ($this->action === 'view' || $this->action === 'edit' || $this->action === 'delete')
+			{
+				return $this->userHasPermission($user,PERMISSION_USEREDIT);
+			}
+		}
+		return true;
+	}
+	}
