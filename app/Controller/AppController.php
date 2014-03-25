@@ -52,6 +52,12 @@ class AppController extends Controller {
 
     public function beforeFilter() {
         $this->Auth->allow('display');
+$this->facebook = new Facebook(array(
+      'appId' => '301374523349587',
+      'secret' => '96f60f63bd908020b0894fc24a85c1d6',
+      'fileUpload' => false, // optional
+      'allowSignedRequest' => false, // optional, but should be set to false for non-canvas apps
+  ));
     }
     public function beforeRender() {
     $this->set('userData', $this->Auth->user());	
