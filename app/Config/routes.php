@@ -20,6 +20,7 @@
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */
+   Router::connect('/article/*', array('controller' => 'articles', 'action' => 'view'));
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 /**

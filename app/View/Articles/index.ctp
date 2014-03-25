@@ -1,3 +1,4 @@
+
 <div class="articles index row">
 <div class="actions span2">
 	<ul class="nav nav-list">
@@ -11,31 +12,34 @@
 	<h2><?php echo __('Articles');?></h2>
 	<table class="table table-condensed" style="white-space:nowrap;">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th><?php echo $this->Paginator->sort('title');?></th>
 			<th><?php echo $this->Paginator->sort('description');?></th>
 			<th><?php echo $this->Paginator->sort('ts_posted');?></th>
 			<th><?php echo $this->Paginator->sort('ts_updated');?></th>
-			<th><?php echo $this->Paginator->sort('icon');?></th>
+			<th>Tags</th>
 			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
 	foreach ($articles as $article): ?>
+
 	<tr>
-		<td><?php echo h($article['Article']['id']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($article['User']['id'], array('controller' => 'users', 'action' => 'view', $article['User']['id'])); ?>
+			<?php echo $this->Html->link($article['User']['f_name'] . ' ' . $article['User']['l_name'], array('controller' => 'users', 'action' => 'view', $article['User']['id'])); ?>
 		</td>
 		<td><?php echo h($article['Article']['title']); ?>&nbsp;</td>
 		<td><?php echo h($article['Article']['description']); ?>&nbsp;</td>
 		<td><?php echo h($article['Article']['ts_posted']); ?>&nbsp;</td>
 		<td><?php echo h($article['Article']['ts_updated']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['icon']); ?>&nbsp;</td>
+		<td>
+		<?php foreach($article['ArticleTag'] as $tag): ?>
+		<span class="label"><?php echo $tag['tag']; ?></span><br />
+		<?php endforeach; ?>
+
 		<td class="actions">
 			<div class="btn-toolbar">
 				<div class="btn-group">
-					<?php echo $this->Html->link(__('View'), array('action' => 'view', $article['Article']['id']), array('class' => 'btn btn-mini')); ?>
+					<?php echo $this->Html->link(__('View'), array('action' => 'view', $article['Article']['title']), array('class' => 'btn btn-mini')); ?>
 					<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $article['Article']['id']), array('class' => 'btn btn-mini')); ?>
 					<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $article['Article']['id']), array('class' => 'btn btn-danger btn-mini'), __('Are you sure you want to delete # %s?', $article['Article']['id'])); ?>
 				</div>

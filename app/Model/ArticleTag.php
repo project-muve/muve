@@ -3,7 +3,7 @@ App::uses('AppModel', 'Model');
 /**
  * ArticleTag Model
  *
- * @property Articles $Articles
+ * @property Article $Article
  */
 class ArticleTag extends AppModel {
 
@@ -13,7 +13,7 @@ class ArticleTag extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'articles_id' => array(
+		'article_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -43,9 +43,9 @@ class ArticleTag extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Articles' => array(
-			'className' => 'Articles',
-			'foreignKey' => 'articles_id',
+		'Article' => array(
+			'className' => 'Article',
+			'foreignKey' => 'article_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

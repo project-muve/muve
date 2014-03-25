@@ -27,9 +27,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
+		
 	?>
 </head>
 <body>
+<?php echo $this->element('FacebookSDK'); ?>
  <div class="mubar_wrapper hidden-phone">
 <div class="container">	
 <div class="mulogoleft">

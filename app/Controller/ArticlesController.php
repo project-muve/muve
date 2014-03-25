@@ -14,15 +14,26 @@ class ArticlesController extends AppController {
  * @var array
  */
 	public $components = array('Paginator');
-	//public $helpers = array('Wysiwyg.Wysiwyg');
+
 /**
  * index method
  *
  * @return void
  */
 	public function index() {
-		$this->Article->recursive = 0;
+		$this->Article->recursive = 1;
 		$this->set('articles', $this->Paginator->paginate());
+	}
+
+	public function isAuthorized($user) {
+		if (parent::isAuthorized($user)){
+			return true;
+		}
+		if ($this->action === 'add' || $this->action === 'edit' || $this->action === 'delete')
+		{
+			return $this->userHasPermission($user,PERMISSION_ARTICLES);
+		}
+		return true;
 	}
 
 /**
@@ -32,12 +43,13 @@ class ArticlesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
-		if (!$this->Article->exists($id)) {
-			throw new NotFoundException(__('Invalid article'));
-		}
-		$options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
-		$this->set('article', $this->Article->find('first', $options));
+	public function view($title = null) {
+		
+   $article = $this->Article->find('first', array('conditions' => array('Article.title' => $title)));
+    if (!$article) {
+        throw new NotFoundException(__('Invalid article') . $title);
+    }
+		$this->set('article', $article);
 	}
 
 /**
@@ -48,15 +60,19 @@ class ArticlesController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Article->create();
+			$this->Article->set('user_id', $this->Auth->user('id'));
+			$this->Article->set('ts_posted',date("Y-m-d H:i:s"));
+			$this->Article->set('ts_modified',date("Y-m-d H:i:s"));
 			if ($this->Article->save($this->request->data)) {
-				$this->Session->setFlash(__('The article has been saved.'));
+				$this->Session->setFlash(__('The article has been saved.'),'flashSuccess');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The article could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The article could not be saved. Please, try again.'),'flashFailure');
 			}
 		}
 		$users = $this->Article->User->find('list');
 		$this->set(compact('users'));
+		
 	}
 
 /**
@@ -71,11 +87,12 @@ class ArticlesController extends AppController {
 			throw new NotFoundException(__('Invalid article'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
+			$this->Article->set('ts_modified',date("Y-m-d H:i:s"));
 			if ($this->Article->save($this->request->data)) {
-				$this->Session->setFlash(__('The article has been saved.'));
+				$this->Session->setFlash(__('The article has been saved.'),'flashSuccess');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The article could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The article could not be saved. Please, try again.'),'flashFailure');
 			}
 		} else {
 			$options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
@@ -99,9 +116,9 @@ class ArticlesController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Article->delete()) {
-			$this->Session->setFlash(__('The article has been deleted.'));
+			$this->Session->setFlash(__('The article has been deleted.'),'flashSuccess');
 		} else {
-			$this->Session->setFlash(__('The article could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The article could not be deleted. Please, try again.'),'flashFailure');
 		}
 		return $this->redirect(array('action' => 'index'));
 	}}

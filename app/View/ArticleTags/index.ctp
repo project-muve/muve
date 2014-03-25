@@ -12,7 +12,7 @@
 	<table class="table table-condensed" style="white-space:nowrap;">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('articles_id');?></th>
+			<th><?php echo $this->Paginator->sort('article_id');?></th>
 			<th><?php echo $this->Paginator->sort('tag');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>

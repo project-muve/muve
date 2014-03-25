@@ -24,6 +24,21 @@ class Article extends AppModel {
 			),
 		),
 		'title' => array(
+		    'login' => array(
+		        'rule'    => 'isUnique',
+		        'message' => 'An article with this title already exists. Articles must have unique names.'
+		    ),
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				'message' => 'You must specify a title for this article.',
+				'allowEmpty' => false,
+				'required' => true,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+			'urlSafe' => array('rule'=>array('custom','|^[0-9a-zA-Z_-\s]*$|'),'message'=>'The title can only contains, letters, numbers, spaces, underscores and dashes')
+		),
+		/*'description' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -32,17 +47,7 @@ class Article extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
-		'description' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+		), */
 		'ts_posted' => array(
 			'datetime' => array(
 				'rule' => array('datetime'),
@@ -91,4 +96,11 @@ class Article extends AppModel {
 			'order' => ''
 		)
 	);
+	public $hasMany = array(
+        'ArticleTag' => array(
+            'className' => 'ArticleTag',
+            'foreignKey' => 'article_id',
+            'dependent' => true
+        )
+    );
 }

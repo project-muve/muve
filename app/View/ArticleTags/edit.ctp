@@ -15,7 +15,7 @@
 		<legend><?php echo __('Edit Article Tag'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('articles_id');
+		echo $this->Form->input('article_id');
 		echo $this->Form->input('tag');
 	?>
 		<div class="form-actions">

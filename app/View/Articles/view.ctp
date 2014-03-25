@@ -1,4 +1,4 @@
-<div class="articles view row">
+<div class="articles view row" itemscope itemtype="http://schema.org/Article">
 	<div class="actions span2">
 		<ul class="nav nav-list">
 			<li class="nav-header"><?php echo __('Actions'); ?></li>
@@ -9,45 +9,14 @@
 		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 		</ul>
+		<?php echo $this->element('TwitterShareButton'); echo $this->element('FacebookShareButton'); ?>
 	</div>
 	<div class="span10">
-		<h2><?php  echo __('Article');?></h2>
-		<dl>
-					<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($article['Article']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('User'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($article['User']['id'], array('controller' => 'users', 'action' => 'view', $article['User']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Title'); ?></dt>
-		<dd>
-			<?php echo h($article['Article']['title']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Description'); ?></dt>
-		<dd>
-			<?php echo h($article['Article']['description']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Ts Posted'); ?></dt>
-		<dd>
-			<?php echo h($article['Article']['ts_posted']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Ts Updated'); ?></dt>
-		<dd>
-			<?php echo h($article['Article']['ts_updated']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Icon'); ?></dt>
-		<dd>
-			<?php echo h($article['Article']['icon']); ?>
-			&nbsp;
-		</dd>
-		</dl>
+		<h2 itemprop="name"><?php  echo $article['Article']['title']; ?></h2>
+		<p><small>Posted by: <span itemprop="author"><?php echo $article['User']['f_name'] . ' ' . $article['User']['l_name']; ?></span> on: <span itemprop="dateCreated"><?php echo $this->Time->nice($article['Article']['ts_posted']); ?></span></small></p>
+		<hr />
+		<article itemprop="articleBody">
+		<?php echo $article['Article']['title']; ?>
+		</article>
 	</div>
 </div>
