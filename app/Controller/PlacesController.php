@@ -24,7 +24,27 @@ class PlacesController extends AppController {
 		$this->Place->recursive = 0;
 		$this->set('places', $this->Paginator->paginate());
 	}
-
+/**
+ * isAuthorized method
+ *
+ * @return boolean
+ */
+	public function isAuthorized($user) {
+		if (parent::isAuthorized($user)){
+			return true;
+		}
+		if ($this->action === 'add' || $this->action === 'edit' || $this->action === 'delete')
+		{
+			return $this->userHasPermission($user,PERMISSION_PLACES);
+		}
+		return true;
+	}
+	public function beforeFilter(){
+    parent::beforeFilter();
+    // Allow users to register and logout.
+    $this->Auth->allow('index', 'view');	
+		
+	}
 /**
  * view method
  *
@@ -48,6 +68,8 @@ class PlacesController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Place->create();
+			$this->Place->set('user_id', $this->Auth->user('id'));
+			$this->Article->set('time_added',date("Y-m-d H:i:s"));
 			if ($this->Place->save($this->request->data)) {
 				$this->Session->setFlash(__('The place has been saved.'));
 				return $this->redirect(array('action' => 'index'));
@@ -57,7 +79,14 @@ class PlacesController extends AppController {
 		}
 		$users = $this->Place->User->find('list');
 		$this->set(compact('users'));
+		$this->set('markers',$this->getMarkerIcons());
 	}
+
+private function getMarkerIcons()
+{
+	$markers =  scandir(APP . DIRECTORY_SEPARATOR. "webroot" . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "markers");
+	return array_slice($markers,2);
+}
 
 /**
  * edit method
@@ -83,6 +112,9 @@ class PlacesController extends AppController {
 		}
 		$users = $this->Place->User->find('list');
 		$this->set(compact('users'));
+		$options = array('conditions' => array('Place.' . $this->Place->primaryKey => $id));
+		$this->set('place', $this->Place->find('first', $options));
+		$this->set('markers',$this->getMarkerIcons());
 	}
 
 /**

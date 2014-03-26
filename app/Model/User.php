@@ -153,8 +153,8 @@ class User extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'Ranking' => array(
-			'className' => 'Ranking',
+		'PlaceRanking' => array(
+			'className' => 'PlaceRanking',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
 			'conditions' => '',

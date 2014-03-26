@@ -1,0 +1,1 @@
+<p>Map markers were created by <a href="http://mapicons.nicolasmollet.com/" target="_blank">Nicolas Mollet</a> under the Creative Commons Attribution-Share Alike 3.0 Unported license (CC BY SA 3.0).

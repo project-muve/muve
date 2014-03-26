@@ -8,17 +8,44 @@
 		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
-<div class="places span10">
+<div class="span6">
+<?php echo $this->Html->script("https://maps.googleapis.com/maps/api/js?key=AIzaSyBwxMvAjSNp_bm-k_YHDTvaCWvgjqqLL0M&sensor=true",array('inline'=>false));
+echo $this->Html->script("places",array('inline'=>false));
+echo $this->Html->script("jquery.dd.min",array('inline'=>false));    
+echo $this->Html->css("dd",array('inline'=>false));
+?>
+<script>
+var placeMarker;
+function placeMarkers()
+{
+  placeMarker = new google.maps.Marker();
+ placeMarker.setMap(googleMap);
+}
+function populateIcons() {
+	var jsonData = [					
+					{description:'Select a marker', value:'', text:''},	
+					<?php foreach ($markers as $marker): ?>				
+					{image:'<?php echo $this->webroot; ?>img/markers/<?php echo $marker; ?>', description:'<?php echo $marker; ?>', value:'<?php echo $marker; ?>', text:''},
+					<?php endforeach; ?>
+					];
+	var jsn = $("#PlaceMarkers").msDropDown({byJson:{data:jsonData, name:'data[Place][icon]'}}).data("dd");
+}
+$(function(){populateIcons();});
+ </script>
+<div style="width:100%; height:600px;" id="map-canvas"></div>
+</div>
+<div class="places span4">
 <?php echo $this->Form->create('Place', array('class' => 'form-horizontal'));?>
 	<fieldset>
 		<legend><?php echo __('Add Place'); ?></legend>
 	<?php
-		echo $this->Form->input('location');
+		echo $this->Form->input('address');
+		echo $this->Form->hidden('latitude');
+		echo $this->Form->hidden('longitude');
 		echo $this->Form->input('name');
 		echo $this->Form->input('description');
-		echo $this->Form->input('user_id');
-		echo $this->Form->input('time_added');
-		echo $this->Form->input('icon');
+		//echo $this->Form->select('icon',$markers);
+		echo '<div id="PlaceMarkers"></div>';
 		echo $this->Form->input('url');
 		echo $this->Form->input('fbid');
 	?>

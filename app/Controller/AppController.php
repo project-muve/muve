@@ -24,6 +24,7 @@ App::uses('Controller', 'Controller');
 
 define('PERMISSION_ARTICLES',		bindec('00000000001'));
 define('PERMISSION_USEREDIT',		bindec('00000000010'));
+define('PERMISSION_PLACES',		bindec('00000000100'));
 
 class AppController extends Controller {
     public $helpers = array(
@@ -52,6 +53,7 @@ class AppController extends Controller {
 
     public function beforeFilter() {
         $this->Auth->allow('display');
+//@todo: Move API credentials to config file
 $this->facebook = new Facebook(array(
       'appId' => '301374523349587',
       'secret' => '96f60f63bd908020b0894fc24a85c1d6',
