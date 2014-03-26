@@ -65,6 +65,10 @@ class Place extends AppModel {
 		),
 	);
 
+public $virtualFields = array(
+    'aggregateRating' => "SELECT round(avg(rating)) from place_rankings where place_id=Place.id"
+);
+
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
