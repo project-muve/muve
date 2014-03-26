@@ -20,7 +20,8 @@ function placeMarkers()
 {
   placeMarker = new google.maps.Marker({
     position: new google.maps.LatLng(<?php echo $place['Place']['latitude']; ?>, <?php echo $place['Place']['longitude']; ?>),
-    title:"<?php echo $place['Place']['name']; ?>"
+    title:"<?php echo $place['Place']['name']; ?>",
+    icon:"<?php echo $this->webroot . 'img/markers/' . $place['Place']['icon']; ?>"
 });
  placeMarker.setMap(googleMap);
 }

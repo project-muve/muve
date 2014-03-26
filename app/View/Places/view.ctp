@@ -27,7 +27,7 @@
 		marker = new google.maps.Marker({
 		    position: new google.maps.LatLng(<?php echo $place['Place']['latitude']; ?>, <?php echo $place['Place']['longitude']; ?>),
 		    title:"<?php echo $place['Place']['name']; ?>",
-		    icon:"<?php echo $this->webroot; ?>img/markers/ echo $place['Place']['icon']; ?>"
+    		icon:"<?php echo $this->webroot . 'img/markers/' . $place['Place']['icon']; ?>"
 		});
 
 		// To add the marker to the map, call setMap();

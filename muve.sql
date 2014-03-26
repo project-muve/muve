@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 26, 2014 at 12:50 PM
+-- Generation Time: Mar 26, 2014 at 01:36 PM
 -- Server version: 5.5.35
 -- PHP Version: 5.3.10-1ubuntu3.10
 
@@ -184,12 +184,12 @@ CREATE TABLE IF NOT EXISTS `places` (
 CREATE TABLE IF NOT EXISTS `place_rankings` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
-  `places_id` int(10) unsigned NOT NULL,
+  `place_id` int(10) unsigned NOT NULL,
   `rating` int(11) NOT NULL,
   `review` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id_idx` (`user_id`),
-  KEY `places_id_idx` (`places_id`)
+  KEY `places_id_idx` (`place_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -302,7 +302,7 @@ ALTER TABLE `places`
 -- Constraints for table `place_rankings`
 --
 ALTER TABLE `place_rankings`
-  ADD CONSTRAINT `place_rankings_ibfk_1` FOREIGN KEY (`places_id`) REFERENCES `places` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `place_rankings_ibfk_1` FOREIGN KEY (`place_id`) REFERENCES `places` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk8_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
