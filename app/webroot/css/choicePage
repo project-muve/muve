@@ -1,0 +1,17 @@
+#choiceLeft {
+	float: left;
+	width: 50%;
+	
+}
+#choiceRight {
+	float: right;
+	width: 50%;
+}
+.choiceImg { 
+	display: block; 
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 25px;
+	height: 50%;
+	width: 50%;
+}
