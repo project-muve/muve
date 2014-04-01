@@ -13,7 +13,7 @@
 	<fieldset>
 		<legend><?php echo __('Add Article Tag'); ?></legend>
 	<?php
-		echo $this->Form->input('articles_id');
+		echo $this->Form->input('article_id');
 		echo $this->Form->input('tag');
 	?>
 		<div class="form-actions">

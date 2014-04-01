@@ -17,17 +17,23 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<?php echo $cakeDescription ?>:
 		<?php echo $title_for_layout; ?>
 	</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 	<?php
 		echo $this->Html->meta('icon');
 
 //		echo $this->Html->css('cake.generic');
 		echo $this->Html->css(array('style','bootstrap','bootstrap-responsive'));
+		echo $this->Html->script(array('bootstrap.min'));
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
+		
 	?>
 </head>
 <body>
+<?php echo $this->element('FacebookSDK'); ?>
  <div class="mubar_wrapper hidden-phone">
 <div class="container">	
 <div class="mulogoleft">
@@ -48,9 +54,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
           </button>
           <a class="brand" href="/index.php">MUVE</a>
           <div class="nav-collapse collapse">
-            <p class="navbar-text pull-right">
-              Logged in as <a href="#" class="navbar-link">Username</a>
-            </p>
+            
+
+
             <ul class="nav">
 <?php $this->startIfEmpty('navbar'); ?>
 <li><a href="/index.php">Home</a></li>
@@ -58,6 +64,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
               <?php echo $this->fetch('navbar'); ?>
             </ul>
           </div><!--/.nav-collapse -->
+                        <?php echo $this->element('UserMenu'); ?>
         </div>
       </div>
     </div>

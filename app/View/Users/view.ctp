@@ -74,6 +74,7 @@
 		<dd>
 			<?php echo h($user['User']['fb_token']); ?>
 			&nbsp;
+<?php if (isset($facebookLogin)) { echo '<a href="' . $facebookLogin . '" target="_blank" class="btn btn-primary">Connect with Facebook</a>'; } ?>
 		</dd>
 		<dt><?php echo __('Tw Token'); ?></dt>
 		<dd>

@@ -10,16 +10,19 @@
 	</ul>
 </div>
 <div class="articles span10">
-<?php echo $this->Form->create('Article', array('class' => 'form-horizontal'));?>
+<?php echo $this->Form->create('Article', array('class' => 'form-horizontal', 'inputDefaults'=>array('error' => array(
+        'attributes' => array('wrap' => 'span', 'class' => 'alert-error')
+    ))));?>
 	<fieldset>
 		<legend><?php echo __('Edit Article'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('user_id');
 		echo $this->Form->input('title');
-		echo $this->Tinymce->textarea('article.description');
-		echo $this->Form->input('ts_posted');
-		echo $this->Form->input('ts_updated');
+	?>
+    <label for="articleDescription">Content</label>
+    <?php echo $this->Tinymce->textarea('Article.description'); ?>
+
+	<?php
 		echo $this->Form->input('icon');
 	?>
 		<div class="form-actions">

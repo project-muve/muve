@@ -101,3 +101,9 @@ CakeLog::config('error', array(
  * Plugin Includes
  */
  CakePlugin::load('Wysiwyg');
+
+/**
+ * Import Facebook API
+ */
+App::import('Vendor','Facebook');
+

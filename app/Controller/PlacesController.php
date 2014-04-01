@@ -13,7 +13,7 @@ class PlacesController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Paginator','RequestHandler');
 
 /**
  * index method
@@ -24,7 +24,28 @@ class PlacesController extends AppController {
 		$this->Place->recursive = 0;
 		$this->set('places', $this->Paginator->paginate());
 	}
-
+/**
+ * isAuthorized method
+ *
+ * @return boolean
+ */
+	public function isAuthorized($user) {
+		if (parent::isAuthorized($user)){
+			return true;
+		}
+		if ($this->action === 'add' || $this->action === 'edit' || $this->action === 'delete')
+		{
+			return $this->userHasPermission($user,PERMISSION_PLACES);
+		}
+		if ($this->action === 'rate' && empty($userData)) { return false;  }
+		return true;
+	}
+	public function beforeFilter(){
+    parent::beforeFilter();
+    // Allow users to register and logout.
+    $this->Auth->allow('index', 'view','rate');	
+		
+	}
 /**
  * view method
  *
@@ -36,7 +57,7 @@ class PlacesController extends AppController {
 		if (!$this->Place->exists($id)) {
 			throw new NotFoundException(__('Invalid place'));
 		}
-		$options = array('conditions' => array('Place.' . $this->Place->primaryKey => $id));
+		$options = array('conditions' => array('Place.' . $this->Place->primaryKey => $id),'recursive'=>2);
 		$this->set('place', $this->Place->find('first', $options));
 	}
 
@@ -48,6 +69,8 @@ class PlacesController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Place->create();
+			$this->Place->set('user_id', $this->Auth->user('id'));
+			$this->Article->set('time_added',date("Y-m-d H:i:s"));
 			if ($this->Place->save($this->request->data)) {
 				$this->Session->setFlash(__('The place has been saved.'));
 				return $this->redirect(array('action' => 'index'));
@@ -57,7 +80,32 @@ class PlacesController extends AppController {
 		}
 		$users = $this->Place->User->find('list');
 		$this->set(compact('users'));
+		$this->set('markers',$this->getMarkerIcons());
 	}
+
+	public function rate($id = null) {
+		$this->viewClass = 'Json';
+
+		if ($this->request->is('ajax')) {
+			$this->loadModel('PlaceRanking');
+			$this->PlaceRanking->create();
+			$this->PlaceRanking->set('user_id', $this->Auth->user('id'));
+			
+			if ($this->PlaceRanking->save($this->request->data)) {
+				$this->set('data',$this->request->data);
+			} else {
+				$this->set('data','no');
+			}
+		}
+		
+
+	}
+
+private function getMarkerIcons()
+{
+	$markers =  scandir(APP . DIRECTORY_SEPARATOR. "webroot" . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "markers");
+	return array_slice($markers,2);
+}
 
 /**
  * edit method
@@ -83,6 +131,9 @@ class PlacesController extends AppController {
 		}
 		$users = $this->Place->User->find('list');
 		$this->set(compact('users'));
+		$options = array('conditions' => array('Place.' . $this->Place->primaryKey => $id));
+		$this->set('place', $this->Place->find('first', $options));
+		$this->set('markers',$this->getMarkerIcons());
 	}
 
 /**

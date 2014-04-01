@@ -9,19 +9,19 @@
 	</ul>
 </div>
 <div class="articles span10">
-<?php echo $this->Form->create('Article', array('class' => 'form-horizontal'));?>
+<?php echo $this->Form->create('Article', array('class' => 'form-horizontal','inputDefaults'=>array('error' => array(
+        'attributes' => array('wrap' => 'span', 'class' => 'text-error')
+    ))));?>
 	<fieldset>
 		<legend><?php echo __('Add Article'); ?></legend>
 	<?php
-		echo $this->Form->input('user_id');
+
 		echo $this->Form->input('title');
 	?>
     <label for="articleDescription">Content</label>
-    <?php echo $this->Tinymce->textarea('article.description'); ?>
+    <?php echo $this->Tinymce->textarea('Article.description'); ?>
 
 	<?php
-		echo $this->Form->input('ts_posted');
-		echo $this->Form->input('ts_updated');
 		echo $this->Form->input('icon');
 	?>
 		<div class="form-actions">
