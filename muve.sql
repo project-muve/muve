@@ -35,7 +35,6 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `title` varchar(128) NOT NULL,
   `description` text NOT NULL,
   `ts_posted` datetime NOT NULL,
-  `ts_posted` datetime NOT NULL,
   `ts_updated` datetime NOT NULL,
   `icon` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
