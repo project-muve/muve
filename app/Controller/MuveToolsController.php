@@ -20,8 +20,7 @@ class MuvetoolsController extends AppController {
  *
  * @return void
  */
-	public function index() {
-		$this->MuveTool->recursive = 0;
+	public function index() { 
 		$this->set('muveTools', $this->Paginator->paginate());
 	}
 
