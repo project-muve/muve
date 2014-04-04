@@ -6,7 +6,7 @@ App::uses('AppController', 'Controller');
  * @property MuveTool $MuveTool
  * @property PaginatorComponent $Paginator
  */
-class MuvetoolsController extends AppController {
+class MuveToolsController extends AppController {
 
 /**
  * Components
@@ -20,7 +20,8 @@ class MuvetoolsController extends AppController {
  *
  * @return void
  */
-	public function index() { 
+	public function index() {
+		$this->MuveTool->recursive = 0;
 		$this->set('muveTools', $this->Paginator->paginate());
 	}
 
