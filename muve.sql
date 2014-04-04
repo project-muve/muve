@@ -83,6 +83,8 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `privacy` varchar(8) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL,
   `description` text,
   `user_id` int(10) unsigned NOT NULL,
+  `visible` tinyint(1) NOT NULL,
+  `open_to_join` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `owner_idx` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -212,6 +214,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `tw_token` text,
   `admin_level` int(11) DEFAULT NULL,
   `show_prof_pic` tinyint(1) NOT NULL,
+  `show_profile` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 

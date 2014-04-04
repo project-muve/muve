@@ -6,7 +6,7 @@ App::uses('AppController', 'Controller');
  * @property MuveTool $MuveTool
  * @property PaginatorComponent $Paginator
  */
-class MuveToolsController extends AppController {
+class MuvetoolsController extends AppController {
 
 /**
  * Components
@@ -25,6 +25,25 @@ class MuveToolsController extends AppController {
 		$this->set('muveTools', $this->Paginator->paginate());
 	}
 
+	public function isAuthorized($user) {
+		if (parent::isAuthorized($user)){
+			return true;
+		}
+		if ($this->action === 'add' || $this->action === 'edit' || $this->action === 'delete')
+		{
+			return $this->userHasPermission($user,PERMISSION_PLACES);
+		}
+		if ($this->action === 'rate' && empty($userData)) { return false;  }
+		return true;
+	}
+	public function beforeFilter(){
+    parent::beforeFilter();
+    // Allow users to register and logout.
+    $this->Auth->allow('index', 'view','rate');	
+		
+	}
+	
+	
 /**
  * view method
  *
