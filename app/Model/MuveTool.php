@@ -5,5 +5,5 @@ App::uses('AppModel', 'Model');
  *
  */
 class MuveTool extends AppModel {
-public $useTable = muve_tools;
+ 
 }
