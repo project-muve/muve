@@ -33,7 +33,7 @@ class PlacesController extends AppController {
 		if (parent::isAuthorized($user)){
 			return true;
 		}
-		if ($this->action === 'add' || $this->action === 'edit' || $this->action === 'delete')
+		if ($this->action === 'add' || $this->action === 'edit' || $this->action === 'delete' || $this->action === 'markers')
 		{
 			return $this->userHasPermission($user,PERMISSION_PLACES);
 		}
@@ -106,6 +106,9 @@ private function getMarkerIcons()
 	$markers =  scandir(APP . DIRECTORY_SEPARATOR. "webroot" . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "markers");
 	return array_slice($markers,2);
 }
+
+
+public function markers() {}
 
 /**
  * edit method
