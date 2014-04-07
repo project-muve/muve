@@ -7,6 +7,18 @@
 </div>
 <div class="span10">
 	<h2><?php echo __('Muve Tools');?></h2>
+	<dl>
+	<?php
+	foreach ($muveTools as $muveTool): ?>
+		<dt>
+			<a href="http://<?php echo h($muveTool['MuveTool']['url']); ?>" target="_blank">
+			<?php echo h($muveTool['MuveTool']['title']); ?>&nbsp;</a>
+		</dt>
+		<dd><?php echo h($muveTool['MuveTool']['description']); ?>&nbsp;</dd>
+	<?php endforeach; ?>
+	</dl>
+	
+	<!--
 	<table class="table table-condensed" style="white-space:nowrap;">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
@@ -34,6 +46,7 @@
 	</tr>
 <?php endforeach; ?>
 	</table>
+	-->
     <div class="well">
 	<?php
 	echo $this->Paginator->counter(array(
