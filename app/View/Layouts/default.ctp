@@ -52,7 +52,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="/index.php">MUVE</a>
+          <a class="brand">
+          <?php echo $this->Html->image('MUVE-title.png', array('alt' => 'MUve')); ?>
+          </a>
           <div class="nav-collapse collapse">
             
 
@@ -60,6 +62,10 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
             <ul class="nav">
 <?php $this->startIfEmpty('navbar'); ?>
 <li><a href="/index.php">Home</a></li>
+<li><a href="/index.php/workoutlogs">Exercise Logs</a></li>
+<li><a href="/index.php/articles/">Articles</a></li>
+<li><a href="/index.php/MuveTools/">MUve Tools</a></li>
+<li><a href="/index.php/places/">Places to MUve</a></li>
 <?php $this->end(); ?>
               <?php echo $this->fetch('navbar'); ?>
             </ul>
