@@ -24,6 +24,22 @@ class ExercisesController extends AppController {
 		$this->Exercise->recursive = 0;
 		$this->set('exercises', $this->Paginator->paginate());
 	}
+/**
+ * isAuthorized method
+ *
+ * @return boolean
+ */
+	public function isAuthorized($user) {
+		if (parent::isAuthorized($user)){
+			return true;
+		}
+		if ($this->action === 'add' || $this->action === 'edit' || $this->action === 'delete' || $this->action === 'markers')
+		{
+			return $this->userHasPermission($user,PERMISSION_EXERCISES);
+		}
+
+		return true;
+	}
 
 /**
  * view method

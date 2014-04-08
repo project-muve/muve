@@ -25,6 +25,7 @@ App::uses('Controller', 'Controller');
 define('PERMISSION_ARTICLES',		bindec('00000000001'));
 define('PERMISSION_USEREDIT',		bindec('00000000010'));
 define('PERMISSION_PLACES',		bindec('00000000100'));
+define('PERMISSION_EXERCISES',	bindec('00000001000'));
 
 class AppController extends Controller {
     public $helpers = array(

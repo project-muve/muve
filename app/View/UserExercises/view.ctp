@@ -27,7 +27,7 @@
 		</dd>
 		<dt><?php echo __('Exercises'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($userExercise['Exercises']['title'], array('controller' => 'exercises', 'action' => 'view', $userExercise['Exercises']['id'])); ?>
+			<?php echo $this->Html->link($userExercise['Exercise']['title'], array('controller' => 'exercises', 'action' => 'view', $userExercise['Exercise']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Ts Completed'); ?></dt>

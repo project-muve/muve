@@ -18,7 +18,7 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('user_id');
-		echo $this->Form->input('exercises_id');
+		echo $this->Form->input('exercise_id');
 		echo $this->Form->input('ts_completed');
 		echo $this->Form->input('duration');
 		echo $this->Form->input('amount');

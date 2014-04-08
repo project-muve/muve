@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+
 /**
  * UserExercises Controller
  *
@@ -22,7 +23,26 @@ class UserExercisesController extends AppController {
  */
 	public function index() {
 		$this->UserExercise->recursive = 0;
-		$this->set('userExercises', $this->Paginator->paginate());
+		//Allow admins with rights to view exercises for all users
+		if ($this->userHasPermission($this->Auth->user(),PERMISSION_EXERCISES))
+		{
+			$this->set('userExercises', $this->Paginator->paginate('UserExercise'));
+		}
+		else
+		{
+			$this->set('userExercises', $this->Paginator->paginate('UserExercise',array('UserExercise.user_id' => $this->Auth->user('id'))));
+		}
+	}
+/**
+ * isAuthorized method
+ *
+ * @return boolean
+ */
+	public function isAuthorized($user) {
+		if (parent::isAuthorized($user)){
+			return true;
+		}
+		return true;
 	}
 
 /**
@@ -48,6 +68,7 @@ class UserExercisesController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->UserExercise->create();
+			$this->UserExercise->set('user_id', $this->Auth->user('id'));
 			if ($this->UserExercise->save($this->request->data)) {
 				$this->Session->setFlash(__('The user exercise has been saved.'));
 				return $this->redirect(array('action' => 'index'));
@@ -55,9 +76,9 @@ class UserExercisesController extends AppController {
 				$this->Session->setFlash(__('The user exercise could not be saved. Please, try again.'));
 			}
 		}
-		$users = $this->UserExercise->User->find('list');
+
 		$exercises = $this->UserExercise->Exercise->find('list');
-		$this->set(compact('users', 'exercises'));
+		$this->set(compact('exercises'));
 	}
 
 /**
@@ -82,9 +103,9 @@ class UserExercisesController extends AppController {
 			$options = array('conditions' => array('UserExercise.' . $this->UserExercise->primaryKey => $id));
 			$this->request->data = $this->UserExercise->find('first', $options);
 		}
-		$users = $this->UserExercise->User->find('list');
+
 		$exercises = $this->UserExercise->Exercise->find('list');
-		$this->set(compact('users', 'exercises'));
+		$this->set(compact('exercises'));
 	}
 
 /**

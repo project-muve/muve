@@ -51,9 +51,9 @@ class UserExercise extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'Exercises' => array(
-			'className' => 'Exercises',
-			'foreignKey' => 'exercises_id',
+		'Exercise' => array(
+			'className' => 'Exercise',
+			'foreignKey' => 'exercise_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

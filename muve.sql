@@ -227,7 +227,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 CREATE TABLE IF NOT EXISTS `user_exercises` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
-  `exercises_id` int(10) unsigned NOT NULL,
+  `exercise_id` int(10) unsigned NOT NULL,
   `ts_completed` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `duration` time DEFAULT NULL,
   `amount` int(10) unsigned DEFAULT NULL,
@@ -312,7 +312,7 @@ ALTER TABLE `place_rankings`
 -- Constraints for table `user_exercises`
 --
 ALTER TABLE `user_exercises`
-  ADD CONSTRAINT `fk1_exercise_id` FOREIGN KEY (`exercises_id`) REFERENCES `exercises` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk1_exercise_id` FOREIGN KEY (`exercise_id`) REFERENCES `exercises` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk1_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --

@@ -15,7 +15,7 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
-			<th><?php echo $this->Paginator->sort('exercises_id');?></th>
+			<th><?php echo $this->Paginator->sort('exercise_id');?></th>
 			<th><?php echo $this->Paginator->sort('ts_completed');?></th>
 			<th><?php echo $this->Paginator->sort('duration');?></th>
 			<th><?php echo $this->Paginator->sort('amount');?></th>
@@ -29,7 +29,7 @@
 			<?php echo $this->Html->link($userExercise['User']['id'], array('controller' => 'users', 'action' => 'view', $userExercise['User']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($userExercise['Exercises']['title'], array('controller' => 'exercises', 'action' => 'view', $userExercise['Exercises']['id'])); ?>
+			<?php echo $this->Html->link($userExercise['Exercise']['title'], array('controller' => 'exercises', 'action' => 'view', $userExercise['Exercise']['id'])); ?>
 		</td>
 		<td><?php echo h($userExercise['UserExercise']['ts_completed']); ?>&nbsp;</td>
 		<td><?php echo h($userExercise['UserExercise']['duration']); ?>&nbsp;</td>
