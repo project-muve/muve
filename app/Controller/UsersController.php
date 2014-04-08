@@ -18,7 +18,7 @@ class UsersController extends AppController {
 public function beforeFilter() {
     parent::beforeFilter();
     // Allow users to register and logout.
-    $this->Auth->allow('add', 'logout');
+    $this->Auth->allow('register', 'logout');
 }
 
 public function login() {
@@ -129,7 +129,24 @@ public function login() {
 		$groups = $this->User->Group->find('list');
 		$this->set(compact('groups'));
 	}
-
+/**
+ * register method
+ *
+ * @return void
+ */
+	public function register() {
+		if ($this->request->is('post')) {
+			$this->User->create();
+			if ($this->User->save($this->request->data)) {
+				$this->Session->setFlash(__('Your account has been created.'),'flashSuccess');
+				if ($this->Auth->login()) {
+					return $this->redirect($this->Auth->redirect());
+				}
+			} else {
+				$this->Session->setFlash(__('Sorry, we could not create your account. Please, try again.'),'flashFailure');
+			}
+		}
+	}
 /**
  * edit method
  *

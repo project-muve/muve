@@ -24,17 +24,26 @@ class User extends AppModel {
 		'username' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
+				'message' => 'You must supply a username.',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+			'unique' => array(
+				'rule' => 'isUnique',
+				'message' => 'This username has already been taken.',
+				'required' => 'create'
+			),
+			'alphanumeric' => array(
+				'message' => 'Your username can only contain letters and numbers.',
+				'rule' => 'alphanumeric'
+			)
 		),
 		'email' => array(
 			'email' => array(
 				'rule' => array('email'),
-				//'message' => 'Your custom message here',
+				'message' => 'Please provide a valid email address.',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -44,7 +53,21 @@ class User extends AppModel {
 		'password' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
+				'message' => 'You must provide a password',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+			'size' => array(
+				'rule' => array('between', 8, 20),
+				'message' => 'Password should be at least 8 chars long'
+				),
+		),
+		'password2' => array(
+				'same' => array(
+				'rule' => array('equaltofield','password'),
+				'message' => 'Your passwords must match.'
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -215,7 +238,14 @@ class User extends AppModel {
 			'finderQuery' => '',
 		)
 	);
+
 public function beforeSave($options = array()) {
+    if (isset($this->data[$this->alias]['password2'])) {
+        $passwordHasher = new SimplePasswordHasher();
+        $this->data[$this->alias]['password2'] = $passwordHasher->hash(
+            $this->data[$this->alias]['password2']
+        );
+    }
     if (isset($this->data[$this->alias]['password'])) {
         $passwordHasher = new SimplePasswordHasher();
         $this->data[$this->alias]['password'] = $passwordHasher->hash(
@@ -224,4 +254,14 @@ public function beforeSave($options = array()) {
     }
     return true;
 }
+    function equaltofield($check,$otherfield) 
+    { 
+        //get name of field 
+        $fname = ''; 
+        foreach ($check as $key => $value){ 
+            $fname = $key; 
+            break; 
+        } 
+        return $this->data[$this->name][$otherfield] === $this->data[$this->name][$fname]; 
+    } 
 }

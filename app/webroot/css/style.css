@@ -270,4 +270,6 @@ padding: 0px;
       }
 
     }
-	
+#map-canvas img {
+max-width: none;
+}

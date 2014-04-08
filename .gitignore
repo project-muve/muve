@@ -1,3 +1,4 @@
 app/tmp
+app/Config/database.php
 *.ctp~
 *.php~

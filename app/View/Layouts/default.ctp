@@ -52,8 +52,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand">
-          <?php echo $this->Html->image('MUVE-title.png', array('alt' => 'MUve')); ?>
+          <?php echo $this->Html->link($this->Html->image('MUVE-title.png', array('alt' => 'MUve')),array('controller' =>'pages','action'=>'display','home'),array('class'=>'brand','escape' => false)); ?>
+
           </a>
           <div class="nav-collapse collapse">
             
@@ -61,11 +61,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
             <ul class="nav">
 <?php $this->startIfEmpty('navbar'); ?>
-<li><a href="/index.php">Home</a></li>
-<li><a href="/index.php/workoutlogs">Exercise Logs</a></li>
+<li><?php echo $this->Html->link('Home',array('controller' =>'pages','action'=>'display','home')); ?></li>
+<li><?php echo $this->Html->link('Exercise Log',array('controller' =>'user_exercises','action'=>'index')); ?></li>
 <li><a href="/index.php/articles/">Articles</a></li>
-<li><a href="/index.php/MuveTools/">MUve Tools</a></li>
-<li><a href="/index.php/places/">Places to MUve</a></li>
+<li><?php echo $this->Html->link('MUVE Tools',array('controller' =>'MuveTools','action'=>'index')); ?></li>
+<li><?php echo $this->Html->link('Places to MUVE',array('controller' =>'places','action'=>'index')); ?></li>
 <?php $this->end(); ?>
               <?php echo $this->fetch('navbar'); ?>
             </ul>
