@@ -7,12 +7,10 @@
 	<div class="actions span2">
 		<ul class="nav nav-list">
 			<li class="nav-header"><?php echo __('Actions'); ?></li>
-					<li><?php echo $this->Html->link(__('Edit Place'), array('action' => 'edit', $place['Place']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Place'), array('action' => 'edit', $place['Place']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Place'), array('action' => 'delete', $place['Place']['id']), null, __('Are you sure you want to delete # %s?', $place['Place']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Places'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Place'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
 	<div class="span7">
@@ -57,7 +55,8 @@
 		}
 		</script>
 	</div>
-<div class="span3" >
+<div class="span3">
+	<h2>Average User Rating</h2>
     	<small class="rating">
     	<?php for ($i=1;$i<=$place['Place']['aggregateRating']; $i++): ?>
 			<span>★</span>
@@ -69,11 +68,14 @@
     <meta itemprop="latitude" content="	<?php echo $place['Place']['latitude']; ?>" />
     <meta itemprop="longitude" content="<?php echo $place['Place']['longitude']; ?>" />
   </div>
+  <h2>Description:</h2>
   <span itemprop="description"><?php echo $place['Place']['description']; ?></span>
 <hr />
   <address>
+  	<h2>Address:</h2>
 	<?php echo $place['Place']['address']; ?>
   </address>
+  <h2>Website:</h2>
   <?php if (!empty($place['Place']['url'])){ echo $this->Html->link('Website',$place['Place']['url']); } ?>
 </div>
 </div>
