@@ -3,7 +3,7 @@
 
 <div class="col-lg-6 col-lg-offset-3">
 
-<h2 style="text-align:center;">Login</h2>
+<h2 class="loginHeader">Login</h2>
 
 <div class="well">
 <?php echo $this->Session->flash('auth'); ?>
