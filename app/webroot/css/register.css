@@ -1,0 +1,13 @@
+/* Register Style Sheet */ 
+
+.regHead {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+  text-align: center;
+   margin-top: 20px;
+  margin-bottom: 10px;
+  color: #F1B82D;
+  font-size: 30px;
+}
