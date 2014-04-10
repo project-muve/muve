@@ -4,16 +4,14 @@
         <li class="nav-header"><?php echo __('Actions'); ?></li>
 
 		<li><?php echo $this->Html->link(__('List User Exercises'), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Exercises'), array('controller' => 'exercises', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Exercises'), array('controller' => 'exercises', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="userExercises span10">
 <?php echo $this->Form->create('UserExercise', array('class' => 'form-horizontal'));?>
+		<h2 class="logHeader">Complete your Exercise Log!</h2>
 	<fieldset>
-		<legend><?php echo __('Add User Exercise'); ?></legend>
 	<?php
 
 		echo $this->Form->input('exercise_id');
