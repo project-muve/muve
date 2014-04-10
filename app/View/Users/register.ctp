@@ -1,8 +1,11 @@
+<?php $this->Html->css('register'); ?>
 <div class="users row-fluid">
 <div class="users span4 offset4">
 <?php echo $this->Form->create('User', array('class' => 'form-horizontal'));?>
+	<h2 class="regHead">Register!</h2>
 	<fieldset>
-		<legend><?php echo __('Register'); ?></legend>
+		
+	<!--	<legend><?php echo __('Register'); ?></legend> -->
 	<?php
 		echo $this->Form->input('username');
 		echo $this->Form->input('email');
