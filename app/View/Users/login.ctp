@@ -1,4 +1,5 @@
-<?php $this->Html->css('login'); ?>
+<?php echo $this->Html->css('login', array('inline' => false)); ?>
+
 <div class="row">
 
 <div class="col-lg-6 col-lg-offset-3">
