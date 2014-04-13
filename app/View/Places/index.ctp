@@ -43,7 +43,7 @@ marker[<?php echo $place['Place']['id']; ?>].setMap(googleMap);
 <?php endforeach;?>
 }
 </script>
-	<?php $this->Html->css('table'); ?>
+	<?php echo $this->Html->css('table', array('inline' => false)); ?>
 	<table class="placesTables">
 	<tr>
 			<th><?php echo $this->Paginator->sort('name');?></th>
