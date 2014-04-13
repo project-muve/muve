@@ -2,15 +2,14 @@
 <div class="actions span2">
 	<ul class="nav nav-list">
         <li class="nav-header"><?php echo __('Actions'); ?></li>
-		<li><?php echo $this->Html->link(__('New User Exercise'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Add New Exercise Log'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Exercises'), array('controller' => 'exercises', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Exercises'), array('controller' => 'exercises', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="span10">
-	<h2><?php echo __('User Exercises');?></h2>
+	<?php echo $this->Html->css('table', array('inline' => false)); ?>
+	<h2><?php echo __('User Exercises Logged');?></h2>
 	<table class="table table-condensed" style="white-space:nowrap;">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
