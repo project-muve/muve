@@ -8,6 +8,7 @@
 		<li><?php echo $this->Html->link(__('New Exercises'), array('controller' => 'exercises', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+<?php echo $this->Html->css('form'); ?>
 <div class="userExercises span10">
 <?php echo $this->Form->create('UserExercise', array('class' => 'form-container'));?>
 		<h2>Complete your Exercise Log!</h2>
