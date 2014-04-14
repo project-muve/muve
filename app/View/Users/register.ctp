@@ -1,4 +1,4 @@
-<?php $this->Html->css('register'); ?>
+<?php echo $this->Html->css('register'); ?>
 <div class="users row-fluid">
 <div class="users span4 offset4">
 <?php echo $this->Form->create('User', array('class' => 'form-horizontal'));?>
