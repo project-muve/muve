@@ -6,8 +6,6 @@
 		<li><?php echo $this->Form->postLink(__('Delete User Exercise'), array('action' => 'delete', $userExercise['UserExercise']['id']), null, __('Are you sure you want to delete # %s?', $userExercise['UserExercise']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List User Exercises'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New User Exercise'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Exercises'), array('controller' => 'exercises', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Exercises'), array('controller' => 'exercises', 'action' => 'add')); ?> </li>
 		</ul>
@@ -18,11 +16,6 @@
 					<dt><?php echo __('Id'); ?></dt>
 		<dd>
 			<?php echo h($userExercise['UserExercise']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('User'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($userExercise['User']['id'], array('controller' => 'users', 'action' => 'view', $userExercise['User']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Exercises'); ?></dt>
