@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('CakeEmail', 'Network/Email');
 /**
  * Users Controller
  *
@@ -22,13 +23,17 @@ public function beforeFilter() {
 }
 
 public function login() {
+	if ($this->Auth->user())
+	{
+		return $this->redirect($this->Auth->redirectUrl());
+	}
     if ($this->request->is('post')) {
 		if ($this->Auth->login()) {
-				return $this->redirect($this->Auth->redirect());
+			return $this->redirect(array('controller' => 'users','action' => 'profile'));
 			}
-			$this->Session->setFlash(__('Invalid username or password, try again'));
+			$this->Session->setFlash(__('Invalid username or password, try again'),'flashFailure');
    	}
-	}
+}
 
 	public function logout() {
 		return $this->redirect($this->Auth->logout());
@@ -80,7 +85,13 @@ public function login() {
 		$user=$this->User->find('first', $options);
 		$this->User->create($user);
 		$this->set('user', $user );
-
+				$Email = new CakeEmail();
+				$Email->from(array('MUVE@missouri.edu' => 'MUVE'))
+					->sender('MUVE@missouri.edu', 'MUVE')
+					//->to($this->User['email'])
+					->to('bar535@mail.missouri.edu')
+					->subject('Welcome to MUVE')
+					->send('Welcome to MUVE');
 	//Check for Facebook Account
 	$extended_token=$this->facebookAuthenticate();
 	if ($extended_token != null)
@@ -108,7 +119,47 @@ public function login() {
 
     }
 	}
+/**
+ * view method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function profile() {
+;
+		$options = array('recursive'=>2, 'conditions' => array('User.' . $this->User->primaryKey => $this->Auth->user('id')));
+		$user=$this->User->find('first', $options);
+		$this->User->create($user);
+		$this->set('user', $user );
+				
+	//Check for Facebook Account
+	$extended_token=$this->facebookAuthenticate();
+	if ($extended_token != null)
+	{
+		$this->User->saveField('fb_token',$extended_token);
+	}
+	else
+	{
+		$extended_token=$user['User']['fb_token'];
+	}
+	$this->facebook->setAccessToken($extended_token);
 
+	if ($this->facebook->getUser()){
+	//See if they've authorized the App, and that we have a valid access token.
+     	try {
+        	$this->facebook->api('/me','GET');
+      	} catch(FacebookApiException $e) {
+	//Either they haven't authorized the App or we have an expired token
+	// Pass the login URL to the view
+        $this->set('facebookLogin',$this->facebook->getLoginUrl()); 
+      }   
+    } else {
+	//the User is not signed into Facebook, pass the login URL to the view
+        $this->set('facebookLogin',$this->facebook->getLoginUrl()); 
+
+    }
+	}
 /**
  * add method
  *
@@ -139,6 +190,12 @@ public function login() {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash(__('Your account has been created.'),'flashSuccess');
+				$Email = new CakeEmail();
+				$Email->from(array('MUVE@missouri.edu' => 'MUVE'))
+					->sender('MUVE@missouri.edu', 'MUVE')
+					->to($this->User['email'])
+					->subject('Welcome to MUVE')
+					->send('Welcome to MUVE');
 				if ($this->Auth->login()) {
 					return $this->redirect($this->Auth->redirect());
 				}

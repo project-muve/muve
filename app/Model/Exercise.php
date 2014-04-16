@@ -33,4 +33,20 @@ class Exercise extends AppModel {
 			),
 		),
 	);
+	public $hasMany = array(
+		'UserExercise' => array(
+			'className' => 'UserExercise',
+			'foreignKey' => 'exercise_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
 }
+

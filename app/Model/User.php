@@ -116,6 +116,12 @@ class User extends AppModel {
 		),
 	);
 
+	
+public $virtualFields = array(
+    'fullName' => 'CONCAT(User.f_name, " ", User.l_name)'
+);
+
+
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
