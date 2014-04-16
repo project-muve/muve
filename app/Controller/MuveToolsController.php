@@ -22,7 +22,8 @@ class MuveToolsController extends AppController {
  */
 	public function index() {
 		$this->MuveTool->recursive = 0;
-		$this->set('muveTools', $this->Paginator->paginate());
+		$this->set('muveTools', $this->MuveTool->find('all'));
+		$this->set('canEdit',$this->userHasPermission($this->Auth->user(),PERMISSION_TOOLS));
 	}
 
 	public function isAuthorized($user) {
@@ -31,7 +32,7 @@ class MuveToolsController extends AppController {
 		}
 		if ($this->action === 'add' || $this->action === 'edit' || $this->action === 'delete')
 		{
-			return $this->userHasPermission($user,PERMISSION_PLACES);
+			return $this->userHasPermission($user,PERMISSION_TOOLS);
 		}
 		if ($this->action === 'rate' && empty($userData)) { return false;  }
 		return true;
@@ -68,10 +69,10 @@ class MuveToolsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->MuveTool->create();
 			if ($this->MuveTool->save($this->request->data)) {
-				$this->Session->setFlash(__('The muve tool has been saved.'));
+				$this->Session->setFlash(__('The muve tool has been saved.'),'flashSuccess');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The muve tool could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The muve tool could not be saved. Please, try again.'),'flashFailure');
 			}
 		}
 	}
@@ -89,10 +90,10 @@ class MuveToolsController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->MuveTool->save($this->request->data)) {
-				$this->Session->setFlash(__('The muve tool has been saved.'));
+				$this->Session->setFlash(__('The muve tool has been saved.'),'flashSuccess');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The muve tool could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The muve tool could not be saved. Please, try again.'),'flashFailure');
 			}
 		} else {
 			$options = array('conditions' => array('MuveTool.' . $this->MuveTool->primaryKey => $id));
@@ -114,9 +115,9 @@ class MuveToolsController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->MuveTool->delete()) {
-			$this->Session->setFlash(__('The muve tool has been deleted.'));
+			$this->Session->setFlash(__('The muve tool has been deleted.'),'flashSuccess');
 		} else {
-			$this->Session->setFlash(__('The muve tool could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The muve tool could not be deleted. Please, try again.'),'flashFailure');
 		}
 		return $this->redirect(array('action' => 'index'));
 	}}
