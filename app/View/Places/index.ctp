@@ -15,8 +15,8 @@
 <?php echo $this->Html->script("https://maps.googleapis.com/maps/api/js?key=AIzaSyBwxMvAjSNp_bm-k_YHDTvaCWvgjqqLL0M&sensor=true",array('inline'=>false));
 echo $this->Html->script("places",array('inline'=>false));  
 ?>
-
-<div style="width:600px;height:600px;display:block;margin-left:auto;margin-right:auto;" id="map-canvas"></div>
+<!-- test this... width= 600, height = 600 -->
+<div style="width:100%;height:75%;display:block;margin-left:auto;margin-right:auto;" id="map-canvas"></div>
 <script>
 function placeMarkers(){
 var marker = [];
@@ -44,6 +44,7 @@ marker[<?php echo $place['Place']['id']; ?>].setMap(googleMap);
 <?php endforeach;?>
 }
 </script>
+
 	<?php echo $this->Html->css('table', array('inline' => false)); ?>
 	<table class="placesTables">
 	<tr>
