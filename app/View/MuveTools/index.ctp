@@ -1,10 +1,12 @@
+<?php echo $this->Html->css('muvetools'); ?>
+
 <div class="container">
 <div class="muveTools index row-fluid">
 <div class="actions span2">
 <?php if ($canEdit): ?>
 	<ul class="nav nav-list">
         <li class="nav-header"><?php echo __('Actions'); ?></li>
-		<li><?php echo $this->Html->link(__('New Muve Tool'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('Add MUve Tool'), array('action' => 'add')); ?></li>
 	</ul>
 <?php endif; ?>
 </div>
