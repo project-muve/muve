@@ -23,7 +23,8 @@
 				echo $this->Form->postLink(__('(Delete)'), array('action' => 'delete', $muveTool['MuveTool']['id']), null, __('Are you sure you want to delete # %s?', $muveTool['MuveTool']['id']));
 				} ?>
 		</dt>
-		<dd><?php echo h($muveTool['MuveTool']['description']); ?>&nbsp;</dd>
+		<dd class="tool1"><?php echo h($muveTool['MuveTool']['description']); ?>&nbsp;</dd>
+		<hr>
 	<?php endforeach; ?>
 	</dl>
 	
