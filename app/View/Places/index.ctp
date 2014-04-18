@@ -5,6 +5,7 @@
 		<li><?php echo $this->Html->link(__('New Place'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+		<br><br>
 		<li><?php echo $this->element('wrcFacebook'); ?></li>
 	</ul>
 </div>
@@ -16,7 +17,7 @@
 echo $this->Html->script("places",array('inline'=>false));  
 ?>
 <!-- test this... width= 600, height = 600 -->
-<div style="width:100%;height:75%;display:block;margin-left:auto;margin-right:auto;" id="map-canvas"></div>
+<div style="width:600px;height:600px;display:block;margin-left:auto;margin-right:auto;" id="map-canvas"></div>
 <script>
 function placeMarkers(){
 var marker = [];
