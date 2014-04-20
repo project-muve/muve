@@ -288,16 +288,23 @@ public function login() {
 			throw new NotFoundException(__('Invalid user'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
+			if (empty($this->request->data['User']['password']))
+			{
+				$this->User->validator()->remove('password');
+				$this->User->validator()->remove('password2');
+				unset($this->request->data['User']['password']);
+			}
 			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved.'));
+				$this->Session->setFlash(__('The user has been saved.'),'flashSuccess');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The user could not be saved. Please, try again.'),'flashFailure');
 			}
 		} else {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 			$this->request->data = $this->User->find('first', $options);
 		}
+
 		$groups = $this->User->Group->find('list');
 		$this->set(compact('groups'));
 	}
@@ -316,9 +323,9 @@ public function login() {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->User->delete()) {
-			$this->Session->setFlash(__('The user has been deleted.'));
+			$this->Session->setFlash(__('The user has been deleted.'),'flashSuccess');
 		} else {
-			$this->Session->setFlash(__('The user could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The user could not be deleted. Please, try again.'),'flashFailure');
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

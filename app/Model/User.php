@@ -49,6 +49,12 @@ class User extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+			'unique' => array(
+				'rule' => 'isUnique',
+				'message' => 'This email has already been used.',
+				'required' => 'create',
+				'on' => 'create'
+			),
 		),
 		'password' => array(
 			'notEmpty' => array(
@@ -57,7 +63,7 @@ class User extends AppModel {
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 			'size' => array(
 				'rule' => array('between', 8, 20),
@@ -67,7 +73,7 @@ class User extends AppModel {
 		'password2' => array(
 				'same' => array(
 				'rule' => array('equaltofield','password'),
-				'message' => 'Your passwords must match.'
+				'message' => 'Your passwords must match.',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
