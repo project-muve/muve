@@ -1,3 +1,4 @@
+<p class="text-info">Administrator View</p>
 <div class="userExercises index row">
 <div class="actions span2">
 	<ul class="nav nav-list">
@@ -8,11 +9,11 @@
 	</ul>
 </div>
 <div class="span10">
+
 	<?php echo $this->Html->css('table', array('inline' => false)); ?>
 	<h2><?php echo __('User Exercises Logged');?></h2>
 	<table class="table table-condensed" style="white-space:nowrap;">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th><?php echo $this->Paginator->sort('exercise_id');?></th>
 			<th><?php echo $this->Paginator->sort('ts_completed');?></th>
@@ -23,16 +24,15 @@
 	<?php
 	foreach ($userExercises as $userExercise): ?>
 	<tr>
-		<td><?php echo h($userExercise['UserExercise']['id']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($userExercise['User']['id'], array('controller' => 'users', 'action' => 'view', $userExercise['User']['id'])); ?>
+			<?php echo $this->Html->link($userExercise['User']['username'], array('controller' => 'users', 'action' => 'view', $userExercise['User']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $this->Html->link($userExercise['Exercise']['title'], array('controller' => 'exercises', 'action' => 'view', $userExercise['Exercise']['id'])); ?>
 		</td>
 		<td><?php echo h($userExercise['UserExercise']['ts_completed']); ?>&nbsp;</td>
 		<td><?php echo h($userExercise['UserExercise']['duration']); ?>&nbsp;</td>
-		<td><?php echo h($userExercise['UserExercise']['amount']); ?>&nbsp;</td>
+		<td><?php echo h($userExercise['UserExercise']['amount']) . ' ' . $userExercise['Exercise']['units']; ?>&nbsp;</td>
 		<td class="actions">
 			<div class="btn-toolbar">
 				<div class="btn-group">
@@ -61,4 +61,5 @@
 	</div>
 </div>
 </div>
+
 
