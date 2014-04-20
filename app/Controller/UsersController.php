@@ -204,6 +204,29 @@ public function login() {
 			}
 		}
 	}
+
+	public function password_reset($id=null) {
+		$options = array('recursive'=>0, 'conditions' => array('User.' . $this->User->email => $id));
+		$user=$this->User->find('first', $options);
+		$this->User->create($user);
+		$key=md5(rand()*time() * $user['User']['id']);
+		$this->User->saveField('password_key', $x);
+		$Email = new CakeEmail();
+		$Email->template('passwordReset','default')
+			//->to($this->User['email'])
+			->to('bar535@mail.missouri.edu')
+			->subject('Password Reset')
+			->viewVars(array('name' => $x));
+			->send();
+				if ($this->Auth->login()) {
+					return $this->redirect($this->Auth->redirect());
+				}
+			} else {
+				$this->Session->setFlash(__('Sorry, we could not create your account. Please, try again.'),'flashFailure');
+			}
+		
+	}
+
 /**
  * edit method
  *

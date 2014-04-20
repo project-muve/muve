@@ -4,7 +4,7 @@
 
 <div class="span4 offset4">
 
-<h2 class="loginHeader">Login</h2>
+<h2 class="loginHeader">Reset your Password</h2>
 
 <div class="well">
 <?php echo $this->Session->flash('auth'); ?>
@@ -17,14 +17,10 @@
 	'error' => array(
         'attributes' => array('wrap' => 'p', 'class' => 'text-error')
     )))); ?>
-       
 
-
-
-        
         <?php echo $this->Form->input('username'); ?>
 
-        <?php echo $this->Form->input('password'); ?>
+
 
 
 
