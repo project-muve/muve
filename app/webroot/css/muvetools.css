@@ -1,0 +1,27 @@
+dl {
+	width: 100%;
+	float: left;
+	margin-right: 5em;
+}
+dt {
+	font-weight: bold;
+	color:#F1B82D;
+	font-size: 3.5em;
+	margin-bottom: 1em;
+}
+dd {
+	background:none no-repeat left top;
+	padding-left: 20%;
+	font-size: 1.5em;
+}
+dd.tool1 {
+	background-image:url('http://www.insideoutwellness.net/wp-content/uploads/2013/10/myfitnesspal.jpg');
+}
+dd.tool2 {
+	background-image:url('http://www.sportnfit.com/wp-content/uploads/2014/01/calorie-counter-05-535x535.png');
+}
+
+h2 {
+	color: #F1B82D;	
+
+}

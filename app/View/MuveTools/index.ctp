@@ -1,10 +1,13 @@
+<?php echo $this->Html->css('muvetools'); ?>
+
 <div class="container">
 <div class="muveTools index row-fluid">
 <div class="actions span2">
 <?php if ($canEdit): ?>
 	<ul class="nav nav-list">
         <li class="nav-header"><?php echo __('Actions'); ?></li>
-		<li><?php echo $this->Html->link(__('New Muve Tool'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('Add MUve Tool'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->element('wrcFacebook'); ?></li>
 	</ul>
 <?php endif; ?>
 </div>
@@ -20,7 +23,8 @@
 				echo $this->Form->postLink(__('(Delete)'), array('action' => 'delete', $muveTool['MuveTool']['id']), null, __('Are you sure you want to delete # %s?', $muveTool['MuveTool']['id']));
 				} ?>
 		</dt>
-		<dd><?php echo h($muveTool['MuveTool']['description']); ?>&nbsp;</dd>
+		<dd class="tool1"><?php echo h($muveTool['MuveTool']['description']); ?>&nbsp;</dd>
+		<hr>
 	<?php endforeach; ?>
 	</dl>
 	

@@ -5,7 +5,8 @@
 		<li><?php echo $this->Html->link(__('New Place'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->element('wrcFbElement'); ?></li>
+		<br><br>
+		<li><?php echo $this->element('wrcFacebook'); ?></li>
 	</ul>
 </div>
 <div class="span10">
@@ -15,7 +16,7 @@
 <?php echo $this->Html->script("https://maps.googleapis.com/maps/api/js?key=AIzaSyBwxMvAjSNp_bm-k_YHDTvaCWvgjqqLL0M&sensor=true",array('inline'=>false));
 echo $this->Html->script("places",array('inline'=>false));  
 ?>
-
+<!-- test this... width= 600, height = 600 -->
 <div style="width:600px;height:600px;display:block;margin-left:auto;margin-right:auto;" id="map-canvas"></div>
 <script>
 function placeMarkers(){
@@ -44,6 +45,7 @@ marker[<?php echo $place['Place']['id']; ?>].setMap(googleMap);
 <?php endforeach;?>
 }
 </script>
+
 	<?php echo $this->Html->css('table', array('inline' => false)); ?>
 	<table class="placesTables">
 	<tr>
