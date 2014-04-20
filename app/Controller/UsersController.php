@@ -19,7 +19,7 @@ class UsersController extends AppController {
 public function beforeFilter() {
     parent::beforeFilter();
     // Allow users to register and logout.
-    $this->Auth->allow('register', 'logout');
+    $this->Auth->allow('register', 'logout','passwordreset');
 }
 
 public function login() {
@@ -205,25 +205,21 @@ public function login() {
 		}
 	}
 
-	public function password_reset($id=null) {
-		$options = array('recursive'=>0, 'conditions' => array('User.' . $this->User->email => $id));
+	public function passwordReset($id=null) {
+		$options = array('recursive'=>0, 'conditions' => array('User.email'  => $id));
 		$user=$this->User->find('first', $options);
+		print_r($user);
 		$this->User->create($user);
 		$key=md5(rand()*time() * $user['User']['id']);
-		$this->User->saveField('password_key', $x);
-		$Email = new CakeEmail();
+		$this->User->saveField('password_key', $key);
+		$Email = new CakeEmail('default');
 		$Email->template('passwordReset','default')
 			//->to($this->User['email'])
 			->to('bar535@mail.missouri.edu')
 			->subject('Password Reset')
-			->viewVars(array('name' => $x));
+			->viewVars(array('name' => $key))
 			->send();
-				if ($this->Auth->login()) {
-					return $this->redirect($this->Auth->redirect());
-				}
-			} else {
-				$this->Session->setFlash(__('Sorry, we could not create your account. Please, try again.'),'flashFailure');
-			}
+
 		
 	}
 

@@ -31,7 +31,7 @@ class EmailConfig {
 	public $default = array(
 		'transport' => 'Mail',
 		'from' => array('MUVE@missouri.edu' => 'MUVE'),
-		'sender' => array('MUVE@missouri.edu', 'MUVE'),
+		'sender' => 'MUVE@missouri.edu',
 		'layout' => 'default',
 		//'charset' => 'utf-8',
 		//'headerCharset' => 'utf-8',
