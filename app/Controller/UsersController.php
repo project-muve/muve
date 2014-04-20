@@ -213,9 +213,9 @@ public function login() {
 	 * @param string $id
 	 * @return void
 	 */
-	public function passwordReset($id=null) {
+	public function passwordReset() {
 		if ($this->request->is('post')) {
-			$options = array('recursive'=>0, 'conditions' => array('User.email'  => $id));
+			$options = array('recursive'=>0, 'conditions' => array('User.email'  => $this->request->data['email']));
 			if ($this->User->find('count',$options))
 			{
 				$user=$this->User->find('first', $options);
