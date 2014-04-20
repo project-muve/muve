@@ -215,7 +215,7 @@ public function login() {
 	 */
 	public function passwordReset() {
 		if ($this->request->is('post')) {
-			$options = array('recursive'=>0, 'conditions' => array('User.email'  => $this->request->data['email']));
+			$options = array('recursive'=>0, 'conditions' => array('User.email'  => $this->request->data['User']['email']));
 			if ($this->User->find('count',$options))
 			{
 				$user=$this->User->find('first', $options);
@@ -251,13 +251,22 @@ public function login() {
 			throw new BadRequestException(__('Invalid password key'));
 		}
 		if ($this->request->is('post') && $key !=null) {
-			$options = array('recursive'=>0, 'conditions' => array('User.password_key'  => $id));
+			$options = array('recursive'=>0, 'conditions' => array('User.password_key'  => $key));
 			if ($this->User->find('count',$options))
 			{
 				$user=$this->User->find('first', $options);
 				$this->User->id=$user['User']['id'];
 				$this->User->saveField('password_key', null);
-				$this->User->saveField('password', $this->request->data['password']);
+				$this->User->saveField('password', $this->request->data['User']['password']);
+				$this->Session->setFlash(__('Your password has been changed. You may now login.'),'flashSuccess');
+				$Email = new CakeEmail('default');
+				$Email->template('passwordChanged','default')
+					->emailFormat('both')
+					->to($user['User']['email'])
+					->subject('Password Changed')
+					->viewVars(array('name' => $user['User']['f_name']))
+					->send();
+				return $this->redirect(array('controller' => 'users','action' => 'login'));
 			}
 			else
 			{
