@@ -18,7 +18,7 @@
         'attributes' => array('wrap' => 'p', 'class' => 'text-error')
     )))); ?>
 
-        <?php echo $this->Form->input('username'); ?>
+        <?php echo $this->Form->input('email'); ?>
 
 
 
@@ -26,14 +26,14 @@
 
 	
 
-<?php echo $this->Form->end(array('label'=>__('Login'),'div'=>'form-actions','class'=>'btn btn-primary')); ?>
+<?php echo $this->Form->end(array('label'=>__('Request your password change'),'div'=>'form-actions','class'=>'btn btn-primary')); ?>
 <div class="row-fluid">
 
 <div class="span6">
-<?php echo $this->Html-> link( 'Register', array( 'controller' => 'users', 'action' => 'register' ) ,array('class'=>'btn-link')); ?>
+<?php echo $this->Html-> link( 'Request your password change', array( 'controller' => 'users', 'action' => 'passwordreset' ) ,array('class'=>'btn-link')); ?>
 </div>
 <div class="span6">
-	<?php echo $this->Html-> link( 'Forgot your Password?', array( 'controller' => 'users', 'action' => 'password' ),array('class'=>'btn-link') ); ?>
+	<?php echo $this->Html-> link( 'Login', array( 'controller' => 'users', 'action' => 'login' ),array('class'=>'btn-link') ); ?>
 </div>
   </div>
   </div>

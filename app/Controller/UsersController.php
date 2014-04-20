@@ -19,7 +19,7 @@ class UsersController extends AppController {
 public function beforeFilter() {
     parent::beforeFilter();
     // Allow users to register and logout.
-    $this->Auth->allow('register', 'logout','passwordreset');
+    $this->Auth->allow('register', 'logout','passwordreset','passwordchange');
 }
 
 public function login() {
@@ -205,24 +205,68 @@ public function login() {
 		}
 	}
 
+	/**
+	 * passwordReset method
+	 * Creates a password reset key to reset a user's password and sends the key to ther user's email
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
 	public function passwordReset($id=null) {
-		$options = array('recursive'=>0, 'conditions' => array('User.email'  => $id));
-		$user=$this->User->find('first', $options);
-		print_r($user);
-		$this->User->create($user);
-		$key=md5(rand()*time() * $user['User']['id']);
-		$this->User->saveField('password_key', $key);
-		$Email = new CakeEmail('default');
-		$Email->template('passwordReset','default')
-			//->to($this->User['email'])
-			->to('bar535@mail.missouri.edu')
-			->subject('Password Reset')
-			->viewVars(array('name' => $key))
-			->send();
-
-		
+		if ($this->request->is('post')) {
+			$options = array('recursive'=>0, 'conditions' => array('User.email'  => $id));
+			if ($this->User->find('count',$options))
+			{
+				$user=$this->User->find('first', $options);
+				$this->User->create($user);
+				$key=md5(rand()*time() * $user['User']['id']);
+				$this->User->id=$user['User']['id'];
+				$this->User->saveField('password_key', $key);
+				$Email = new CakeEmail('default');
+				$Email->template('passwordReset','default')
+					->emailFormat('both')
+					->to($user['User']['email'])
+					->subject('Password Reset')
+					->viewVars(array('name' => $user['User']['f_name'],'key'=>$key))
+					->send();
+			}
+			else
+			{
+				$this->Session->setFlash(__('Sorry, we could find an account with that email.'),'flashFailure');
+			}
+		}
 	}
 
+	/**
+	 * passwordChange method
+	 * 
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function passwordChange($key=null) {
+		if (empty($key)) {
+			throw new BadRequestException(__('Invalid password key'));
+		}
+		if ($this->request->is('post') && $key !=null) {
+			$options = array('recursive'=>0, 'conditions' => array('User.password_key'  => $id));
+			if ($this->User->find('count',$options))
+			{
+				$user=$this->User->find('first', $options);
+				$this->User->id=$user['User']['id'];
+				$this->User->saveField('password_key', null);
+				$this->User->saveField('password', $this->request->data['password']);
+			}
+			else
+			{
+				$this->Session->setFlash(__('Sorry, this appears to be an invalid password key.'),'flashFailure');
+			}
+		}
+		$this->set('key',$key);
+	}
+	
 /**
  * edit method
  *
