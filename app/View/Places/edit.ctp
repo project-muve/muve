@@ -4,8 +4,7 @@
         <li class="nav-header"><?php echo __('Actions'); ?></li>
 
 		<li><?php echo $this->Html->link(__('List Places'), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Add Place'), array('action' => 'add'));?></li>
 	</ul>
 </div>
 <div class="span6">
