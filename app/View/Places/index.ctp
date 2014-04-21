@@ -9,8 +9,8 @@
 </div>
 <div class="span10">
 	<h2 style="text-align: center; color=#F1B82D;";><?php echo __('Places to MUve');?></h2> </br >
-	<p style="text-align:center;">Displayed on the map are common places around Columbia, Missouri to be physically active.<br>
-	Hover your mouse over an icon to display place name and click on icon to learn more information about that place!</p>
+	<p style="text-align:center;">Displayed on the map are common places to be physically active around Columbia, Missouri.<br>
+	Hover your mouse over an icon to display the location's name and click on icon to learn more information about that place!</p>
 <?php echo $this->Html->script("https://maps.googleapis.com/maps/api/js?key=AIzaSyBwxMvAjSNp_bm-k_YHDTvaCWvgjqqLL0M&sensor=true",array('inline'=>false));
 echo $this->Html->script("places",array('inline'=>false));  
 ?>
