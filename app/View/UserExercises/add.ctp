@@ -22,7 +22,7 @@
 	?>
 		<div class="submit-container">
 <?php echo $this->Form->submit(__('Submit'),array('class'=>'submit-button','div'=>false));?>
-<?php echo $this->Html->link(__('Cancel'),array('controller' => 'exercises', 'action' => 'index'),array('class'=>'btn btn-cancel'));?>
+<?php echo $this->Html->link(__('Cancel'),array('controller' => 'exercises', 'action' => 'index'),array('class'=>'submit-button'));?>
 		</div>
 		</fieldset>
 <?php echo $this->Form->end();?>
