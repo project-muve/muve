@@ -10,7 +10,7 @@
 		<li><?php echo $this->element('wrcFacebook'); ?></li>
 	</ul>
 <?php endif; 
-elseif: 
+else: 
 	<ul class="nav nav-list">
 		<li><?php echo $this->element('wrcFacebook'); ?></li>
 	</ul>
