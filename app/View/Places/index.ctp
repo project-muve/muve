@@ -43,7 +43,7 @@ marker[<?php echo $place['Place']['id']; ?>].setMap(googleMap);
 <?php endforeach;?>
 }
 </script>
-
+<!--
 	<?php echo $this->Html->css('table', array('inline' => false)); ?>
 	<table class="placesTables">
 	<tr>
@@ -54,7 +54,7 @@ marker[<?php echo $place['Place']['id']; ?>].setMap(googleMap);
 			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
-	foreach ($places as $place): ?>
+//	foreach ($places as $place): ?>
 	<tr>
 		<td><?php echo h($place['Place']['name']); ?>&nbsp;</td>
 		<td><?php echo h($place['Place']['address']); ?>&nbsp;</td>
@@ -70,8 +70,9 @@ marker[<?php echo $place['Place']['id']; ?>].setMap(googleMap);
 			</div>
 		</td>
 	</tr>
-<?php endforeach; ?>
+<?php endforeach; ?> 
 	</table>
+-->
 </div>
 </div>
 
