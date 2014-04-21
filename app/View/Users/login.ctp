@@ -1,5 +1,5 @@
-
-
+<?php echo $this->Html->css('login'); ?>
+<?php echo $this->Html->css('form'); ?>
 <div class="row-fluid">
 
 <div class="span4 offset4">
@@ -22,15 +22,15 @@
 
 
         
-        <?php echo $this->Form->input('username'); ?>
+        <?php echo $this->Form->input('username', array('class' => 'form-field', 'style' => 'float:left'); ?>
 
-        <?php echo $this->Form->input('password'); ?>
+        <?php echo $this->Form->input('password', array('class' => 'form-field', 'style' => 'float:left'); ?>
 
 
 
 	
 
-<?php echo $this->Form->end(array('label'=>__('Login'),'div'=>'form-actions','class'=>'btn btn-primary')); ?>
+<?php echo $this->Form->end(array('label'=>__('Login'),'div'=>'form-actions','class'=>'submit-button')); ?>
 <div class="row-fluid">
 
 <div class="span6">
