@@ -9,11 +9,8 @@
 		<li><?php echo $this->Html->link(__('Add MUve Tool'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->element('wrcFacebook'); ?></li>
 	</ul>
-<?php endif; 
-else: 
-	<ul class="nav nav-list">
-		<li><?php echo $this->element('wrcFacebook'); ?></li>
-	</ul>
+<?php endif; ?>
+
 </div>
 <div class="span10">
 	<h2><?php echo __('MUVE Tools');?></h2>
