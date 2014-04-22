@@ -5,6 +5,7 @@
 		<li><?php echo $this->Html->link(__('Add New Place'), array('action' => 'add')); ?></li>
 		<br><br>
 		<li><?php echo $this->element('wrcFacebook'); ?></li>
+		<li><?php echo $this->element('twitterShare'); ?></li>
 	</ul>
 </div>
 <div class="span10">
