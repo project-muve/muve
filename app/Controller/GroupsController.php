@@ -24,7 +24,22 @@ class GroupsController extends AppController {
 		$this->Group->recursive = 0;
 		$this->set('groups', $this->Paginator->paginate());
 	}
-
+	public function isAuthorized($user) {
+		if (parent::isAuthorized($user)){
+			return true;
+		}
+		if ($this->action === 'add' || $this->action === 'edit' || $this->action === 'delete')
+		{
+			return $this->userHasPermission($user,PERMISSION_PLACES);
+		}
+		if ($this->action === 'rate' && empty($userData)) { return false;  }
+		return true;
+	}
+	public function beforeFilter(){
+    parent::beforeFilter();
+    // Allow users to register and logout.
+    $this->Auth->allow('index', 'view','rate');	
+	}
 /**
  * view method
  *
@@ -32,6 +47,7 @@ class GroupsController extends AppController {
  * @param string $id
  * @return void
  */
+ 
 	public function view($id = null) {
 		if (!$this->Group->exists($id)) {
 			throw new NotFoundException(__('Invalid group'));
@@ -39,6 +55,11 @@ class GroupsController extends AppController {
 		$options = array('conditions' => array('Group.' . $this->Group->primaryKey => $id));
 		$this->set('group', $this->Group->find('first', $options));
 	}
+	
+//	public function view() {
+//		$this->Group->recursive = 0;
+//		$this->set('groups', $this->Paginator->paginate());
+//	}
 
 /**
  * add method
