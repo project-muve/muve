@@ -10,9 +10,10 @@
 		<li><?php echo $this->element('wrcFacebook'); ?></li>
 	</ul>
 <?php endif; ?>
+
 </div>
 <div class="span10">
-	<h2><?php echo __('Muve Tools');?></h2>
+	<h2><?php echo __('MUVE Tools');?></h2>
 	<dl>
 	<?php
 	foreach ($muveTools as $muveTool): ?>

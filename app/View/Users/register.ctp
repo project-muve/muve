@@ -1,3 +1,4 @@
+<?php $this->Html->css(array('form','login')); ?>
 
 <div class="users row-fluid">
 <div class="users span4 offset4">
@@ -10,7 +11,7 @@
 	'error' => array(
         'attributes' => array('wrap' => 'p', 'class' => 'text-error')
     )))); ?>
-	<h2 class="regHead">Register!</h2>
+	<h2 class="loginHeader">Register!</h2>
 	<fieldset>
 	<?php
 		echo $this->Form->input('username');
@@ -22,8 +23,8 @@
 		echo $this->Form->input('okay_email',array('label'=>'May we send you promotional emails about MUVE and The Wellness Center?'));
 	?>
 		<div class="form-actions">
-<?php echo $this->Form->submit(__('Register'),array('class'=>'btn btn-primary','div'=>false));?>
-<?php echo $this->Html->link(__('Cancel'),array('controller' => 'groups', 'action' => 'index'),array('class'=>'btn btn-cancel'));?>
+<?php echo $this->Form->submit(__('Register'),array('class'=>'submit-button','div'=>false));?>
+<?php echo $this->Html->link(__('Cancel'),array('controller' => 'groups', 'action' => 'index'),array('class'=>'submit-button'));?>
 		</div>
 		</fieldset>
 <?php echo $this->Form->end();?>

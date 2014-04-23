@@ -122,3 +122,19 @@ class ArticlesController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}}
+	
+	
+	function lastpost($limit = 4) {
+
+	$articles = $this->Article->find('all', array('fields'=>array('Article.id', 'Article.title', 'Article.ts_posted'),
+							   'recursive'=>0,
+							   'order'=>array('Article.ts_posted description'),
+							   'limit'=>$limit));
+ 
+	if(isset($this->params['requested']))
+	{
+		return $articles;
+	}
+ 
+	$this->set('lastpost', $articles);
+}

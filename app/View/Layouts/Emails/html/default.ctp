@@ -13,8 +13,18 @@
 	<title><?php echo $title_for_layout; ?></title>
 </head>
 <body>
+<table>
+<tr style="height:45px; background-color:black;">
+<td style="text-align:center;">
+<?php echo $this->Html->image("MUVE-title.png", array('alt'=>'MUVE','fullBase' => true)); ?>
+</td>
+</tr>
+<tr>
+<td>
 	<?php echo $this->fetch('content'); ?>
+</td>
+</tr>
+</table>
 
-	<p>This email was sent using the <a href="http://cakephp.org">CakePHP Framework</a></p>
 </body>
 </html>
