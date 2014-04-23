@@ -1,6 +1,6 @@
 <?php echo $this->Html->css('articleview'); ?>
 <div class="articles view row" itemscope itemtype="http://schema.org/Article">
-	<div class="actions span2">
+	<div class="actions span2" style="float:left; margin-left:.5em;">
 		<ul class="nav2 nav2-list">
 			<li class="nav2-header"><?php echo __('Actions'); ?></li>
 					<li><?php echo $this->Html->link(__('Edit Article'), array('action' => 'edit', $article['Article']['id'])); ?> </li>
