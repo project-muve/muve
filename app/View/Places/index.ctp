@@ -6,7 +6,7 @@
 		<br><br>
 		<li><?php echo $this->element('wrcFacebook'); ?></li>
 		<li><?php echo $this->element('twitterShare'); ?></li>
-		<li><?php echo $this->element('lastposts', array('cache'=>'1 hour')); ?></li>
+	<!--	<li><?php // echo $this->element('lastposts', array('cache'=>'1 hour')); ?></li> -->
 	</ul>
 </div>
 <div class="span10">
