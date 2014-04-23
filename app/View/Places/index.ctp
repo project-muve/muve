@@ -50,10 +50,11 @@ marker[<?php echo $place['Place']['id']; ?>].setMap(googleMap);
 	<table class="placesTables">
 	<tr>
 			<th><?php echo $this->Paginator->sort('name');?></th>
+			<th class="actions"><?php echo __('Actions');?></th>
 			<th><?php echo $this->Paginator->sort('address');?></th>
 			<th><?php echo $this->Paginator->sort('description');?></th>
 			<th><?php echo $this->Paginator->sort('url');?></th>
-			<th class="actions"><?php echo __('Actions');?></th>
+			
 	</tr>
 	<?php
 	foreach ($places as $place): ?>
