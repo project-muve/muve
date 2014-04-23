@@ -13,11 +13,12 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th><?php echo $this->Paginator->sort('title');?></th>
+			<th class="actions"><?php echo __('Actions');?></th>
 			<th><?php echo $this->Paginator->sort('description');?></th>
 			<th><?php echo $this->Paginator->sort('ts_posted');?></th>
 			<th><?php echo $this->Paginator->sort('ts_updated');?></th>
 			<th>Tags</th>
-			<th class="actions"><?php echo __('Actions');?></th>
+			
 	</tr>
 	<?php
 	foreach ($articles as $article): ?>
