@@ -22,9 +22,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 	
-	<!-- old Jqeury -->
-	<script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script> 
+	
 	
 	<!-- files for Video manager -->
 	<?php echo $this->Html->script('osmcompress'); ?>
