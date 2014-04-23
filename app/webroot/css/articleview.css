@@ -50,5 +50,5 @@ ol {
 }
 
 .span10 {
-	 width: 780px;
+	 width: 100%; /* 800px*/
 }
