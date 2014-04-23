@@ -124,11 +124,11 @@ class ArticlesController extends AppController {
 	}}
 	
 	
-	public function lastposts($limit = 4) {
+	public function lastpost($limit = 4) {
 
 	$articles = $this->Article->find('all', array('fields'=>array('Article.id', 'Article.title', 'Article.ts_posted'),
 							   'recursive'=>0,
-							   'order'=>array('Post.created desc'),
+							   'order'=>array('Article.ts_posted description'),
 							   'limit'=>$limit));
  
 	if(isset($this->params['requested']))
@@ -136,5 +136,5 @@ class ArticlesController extends AppController {
 		return $articles;
 	}
  
-	$this->set('lastposts', $articles);
+	$this->set('lastpost', $articles);
 }
