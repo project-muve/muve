@@ -1,4 +1,3 @@
-<script type="text/javascript">
   $(function() {
     $("#youtube").osmplayer({
       width: '100%',
@@ -6,4 +5,4 @@
       playlist: 'http://www.youtube.com/user/Mizzouwellness/feed'
     });
   });
-</script>
+
