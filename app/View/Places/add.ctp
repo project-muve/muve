@@ -4,8 +4,6 @@
         <li class="nav-header"><?php echo __('Actions'); ?></li>
 
 		<li><?php echo $this->Html->link(__('List Places'), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="span6">
@@ -37,7 +35,7 @@ $(function(){populateIcons();});
 <div class="places span4">
 <?php echo $this->Form->create('Place', array('class' => 'form-horizontal'));?>
 	<fieldset>
-		<legend><?php echo __('Add Place'); ?></legend>
+		<h2 style="color:#F1B82D;"><?php echo __('Add Place'); ?></h2>
 	<?php
 		echo $this->Form->input('address');
 		echo $this->Form->hidden('latitude');
@@ -49,7 +47,7 @@ $(function(){populateIcons();});
 		echo $this->Form->input('url');
 		echo $this->Form->input('fbid');
 	?>
-		<div class="form-actions">
+		<div class="form-actions" style="center;">
 <?php echo $this->Form->submit(__('Submit'),array('class'=>'btn btn-primary','div'=>false));?>
 <?php echo $this->Html->link(__('Cancel'),array('controller' => 'users', 'action' => 'index'),array('class'=>'btn btn-cancel'));?>
 		</div>

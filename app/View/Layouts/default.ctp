@@ -66,11 +66,13 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <li><a href="/index.php/articles/">Articles</a></li>
 <li><?php echo $this->Html->link('MUVE Tools',array('controller' =>'MuveTools','action'=>'index')); ?></li>
 <li><?php echo $this->Html->link('Places to MUVE',array('controller' =>'places','action'=>'index')); ?></li>
+<li><a href="/index.php/pages/myCollegeKitchen">MyCollegeKitchen</a></li>
 <?php $this->end(); ?>
               <?php echo $this->fetch('navbar'); ?>
             </ul>
           </div><!--/.nav-collapse -->
                         <?php echo $this->element('UserMenu'); ?>
+                        
         </div>
       </div>
     </div>

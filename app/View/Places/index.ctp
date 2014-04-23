@@ -1,22 +1,22 @@
 <div class="places index row">
 <div class="actions span2">
 	<ul class="nav nav-list">
-		<li class="nav-header"><?php echo __('Actions'); ?></li>
-		<li><?php echo $this->Html->link(__('New Place'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+		<li class="nav-header" style="color:#F1B82D;"><?php echo __('Actions'); ?></li>
+		<li><?php echo $this->Html->link(__('Add New Place'), array('action' => 'add')); ?></li>
 		<br><br>
-		<li><?php echo $this->element('wrcFacebook'); ?></li>
+		<li><?php echo $this->element('wrcFacebook'); ?></li><br>
+		<li><?php echo $this->element('twitterShare'); ?></li>
+	<!--	<li><?php // echo $this->element('lastposts', array('cache'=>'1 hour')); ?></li> -->
 	</ul>
 </div>
 <div class="span10">
-	<h2 style="text-align: center;";><?php echo __('Places to MUve');?></h2> </br >
-	<p style="text-align:center;">Displayed on the map are common places around Columbia, Missouri to be physically active.<br>
-	Hover your mouse over an icon to display place name and click on icon to learn more information about that place!</p>
+	<h2 style="text-align: center; color:#F1B82D;";><?php echo __('Places to MUve');?></h2> </br >
+	<p style="text-align:justify">Displayed on the map are common places to be physically active around Columbia, Missouri.<br>
+	Hover your mouse over an icon to display the location's name and click on icon to learn more information about that place!</p>
 <?php echo $this->Html->script("https://maps.googleapis.com/maps/api/js?key=AIzaSyBwxMvAjSNp_bm-k_YHDTvaCWvgjqqLL0M&sensor=true",array('inline'=>false));
 echo $this->Html->script("places",array('inline'=>false));  
 ?>
-<!-- test this... width= 600, height = 600 -->
+
 <div style="width:600px;height:600px;display:block;margin-left:auto;margin-right:auto;" id="map-canvas"></div>
 <script>
 function placeMarkers(){
@@ -72,8 +72,9 @@ marker[<?php echo $place['Place']['id']; ?>].setMap(googleMap);
 			</div>
 		</td>
 	</tr>
-<?php endforeach; ?>
+<?php endforeach; ?> 
 	</table>
+<br><br>
 </div>
 </div>
 
