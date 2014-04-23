@@ -59,9 +59,6 @@ marker[<?php echo $place['Place']['id']; ?>].setMap(googleMap);
 	foreach ($places as $place): ?>
 	<tr>
 		<td><?php echo h($place['Place']['name']); ?>&nbsp;</td>
-		<td><?php echo h($place['Place']['address']); ?>&nbsp;</td>
-		<td><?php echo h($place['Place']['description']); ?>&nbsp;</td>
-		<td><?php echo h($place['Place']['url']); ?>&nbsp;</td>
 		<td class="actions">
 			<div class="btn-toolbar">
 				<div class="btn-group">
@@ -71,6 +68,9 @@ marker[<?php echo $place['Place']['id']; ?>].setMap(googleMap);
 				</div>
 			</div>
 		</td>
+		<td><?php echo h($place['Place']['address']); ?>&nbsp;</td>
+		<td><?php echo h($place['Place']['description']); ?>&nbsp;</td>
+		<td><?php echo h($place['Place']['url']); ?>&nbsp;</td>
 	</tr>
 <?php endforeach; ?> 
 	</table>
