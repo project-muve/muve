@@ -22,9 +22,9 @@
 
 
         
-        <?php echo $this->Form->input('username', array('class' => 'form-field')); ?>
+        <?php echo $this->Form->input('username', array('class' => 'form-control')); ?>
 
-        <?php echo $this->Form->input('password', array('class' => 'form-field')); ?>
+        <?php echo $this->Form->input('password', array('class' => 'form-control')); ?>
 
 
 
