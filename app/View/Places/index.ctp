@@ -4,7 +4,7 @@
 		<li class="nav-header" style="color:#F1B82D;"><?php echo __('Actions'); ?></li>
 		<li><?php echo $this->Html->link(__('Add New Place'), array('action' => 'add')); ?></li>
 		<br><br>
-		<li><?php echo $this->element('wrcFacebook'); ?></li>
+		<li><?php echo $this->element('wrcFacebook'); ?></li><br>
 		<li><?php echo $this->element('twitterShare'); ?></li>
 	<!--	<li><?php // echo $this->element('lastposts', array('cache'=>'1 hour')); ?></li> -->
 	</ul>
