@@ -1,6 +1,6 @@
 <?php 
 
-$posts = $this->requestAction('articles/lastposts/4');
+$articles = $this->requestAction('articles/lastpost/4');
 ?>
  
 <h3>Our latest posts</h3>
