@@ -47,6 +47,7 @@ marker[<?php echo $place['Place']['id']; ?>].setMap(googleMap);
 </script>
 
 	<?php echo $this->Html->css('table', array('inline' => false)); ?>
+	<?php if ($canEdit): ?>
 	<table class="placesTables">
 	<tr>
 			<th><?php echo $this->Paginator->sort('name');?></th>
@@ -75,6 +76,7 @@ marker[<?php echo $place['Place']['id']; ?>].setMap(googleMap);
 	</tr>
 <?php endforeach; ?> 
 	</table>
+<?php endif; ?>
 <br><br>
 </div>
 </div>
