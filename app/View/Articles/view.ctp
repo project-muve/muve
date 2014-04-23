@@ -19,7 +19,7 @@
 		</p>
 		<hr />
 		<article itemprop="articleBody">
-		<?php echo $article['Article']['title']; ?>
+		<?php echo $article['Article']['description']; ?>
 		</article>
 		<br><br>
 	</div>
