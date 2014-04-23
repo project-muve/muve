@@ -18,19 +18,19 @@
    vertical-align: middle;
    min-width:300px;
    padding:20px;
-   width:300px;
+   width:75%; /*300px */
    }
 .form-field {
    border: 1px solid #000000;
    background: #fafa3c;
    -webkit-border-radius: 5px;
    -moz-border-radius: 5px;
-   border-radius: 5px;
+   border-radius: 1px; /* 5px  */
    color: #000000;
    -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(000,000,000,0.7) 0 1px 1px;
    -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(000,000,000,0.7) 0 1px 1px;
    box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(000,000,000,0.7) 0 1px 1px;
-   padding:8px;
+   padding:2px; /* 8px */
    margin-bottom:20px;
    width:280px;
    }
