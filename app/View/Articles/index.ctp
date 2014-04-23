@@ -1,4 +1,3 @@
-
 <div class="articles index row">
 <div class="actions span2">
 	<ul class="nav nav-list">
@@ -28,14 +27,6 @@
 			<?php echo $this->Html->link($article['User']['f_name'] . ' ' . $article['User']['l_name'], array('controller' => 'users', 'action' => 'view', $article['User']['id'])); ?>
 		</td>
 		<td><?php echo h($article['Article']['title']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['description']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['ts_posted']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['ts_updated']); ?>&nbsp;</td>
-		<td>
-		<?php foreach($article['ArticleTag'] as $tag): ?>
-		<span class="label"><?php echo $tag['tag']; ?></span><br />
-		<?php endforeach; ?>
-
 		<td class="actions">
 			<div class="btn-toolbar">
 				<div class="btn-group">
@@ -45,6 +36,14 @@
 				</div>
 			</div>
 		</td>
+		<td><?php echo h($article['Article']['description']); ?>&nbsp;</td>
+		<td><?php echo h($article['Article']['ts_posted']); ?>&nbsp;</td>
+		<td><?php echo h($article['Article']['ts_updated']); ?>&nbsp;</td>
+		<td>
+		<?php foreach($article['ArticleTag'] as $tag): ?>
+		<span class="label"><?php echo $tag['tag']; ?></span><br />
+		<?php endforeach; ?>
+
 	</tr>
 <?php endforeach; ?>
 	</table>
