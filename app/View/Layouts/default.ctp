@@ -17,9 +17,19 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<?php echo $cakeDescription ?>:
 		<?php echo $title_for_layout; ?>
 	</title>
+	<!-- Include the core jQuery and jQuery UI -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	
+	
+	
+	<!-- files for Video manager -->
+	<?php echo $this->Html->script('osmcompress'); ?>
+	<?php echo $this->Html->css('darkhive'); ?>
+	<?php echo $this->Html->css('osmplayer'); ?>
+	<?php echo $this->Html->script('osmdefault'); ?>
+	
 	<?php
 		echo $this->Html->meta('icon');
 
@@ -66,7 +76,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <li><a href="/index.php/articles/">Articles</a></li>
 <li><?php echo $this->Html->link('MUVE Tools',array('controller' =>'MuveTools','action'=>'index')); ?></li>
 <li><?php echo $this->Html->link('Places to MUVE',array('controller' =>'places','action'=>'index')); ?></li>
-<li><?php echo $this->Html->link('MyCollegeKitchen', array('controller' => 'pages', 'action' => 'display')); ?></li>
+<li><a href="/index.php/pages/myCollegeKitchen">MyCollegeKitchen</a></li>
 <?php $this->end(); ?>
               <?php echo $this->fetch('navbar'); ?>
             </ul>

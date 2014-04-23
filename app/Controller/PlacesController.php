@@ -23,6 +23,7 @@ class PlacesController extends AppController {
 	public function index() {
 		$this->Place->recursive = 0;
 		$this->set('places', $this->Paginator->paginate());
+		$this->set('canEdit',$this->userHasPermission($this->Auth->user(),PERMISSION_TOOLS));
 	}
 /**
  * isAuthorized method

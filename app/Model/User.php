@@ -14,7 +14,7 @@ App::uses('SimplePasswordHasher', 'Controller/Component/Auth');
  * @property Group $Group
  */
 class User extends AppModel {
-
+	public $displayField = 'username';
 /**
  * Validation rules
  *

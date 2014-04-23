@@ -30,7 +30,7 @@ class UserExercisesController extends AppController {
 		}
 		else
 		{
-			$this->set('userExercises', $this->Paginator->paginate('UserExercise',array('UserExercise.user_id' => $this->Auth->user('id'))));
+			return $this->redirect(array('controller' =>'users','action'=>'profile'));
 		}
 	}
 /**
@@ -68,7 +68,10 @@ class UserExercisesController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->UserExercise->create();
-			$this->UserExercise->set('user_id', $this->Auth->user('id'));
+			if (!$this->userHasPermission($this->Auth->user(),PERMISSION_EXERCISES))
+			{
+				$this->UserExercise->set('user_id', $this->Auth->user('id'));
+			}
 			if ($this->UserExercise->save($this->request->data)) {
 				$this->Session->setFlash(__('The user exercise has been saved.'));
 				return $this->redirect(array('action' => 'index'));
@@ -78,7 +81,8 @@ class UserExercisesController extends AppController {
 		}
 
 		$exercises = $this->UserExercise->Exercise->find('list');
-		$this->set(compact('exercises'));
+		$users = $this->UserExercise->User->find('list');
+		$this->set(compact('exercises','users'));
 	}
 
 /**
