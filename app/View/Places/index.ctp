@@ -74,7 +74,7 @@ marker[<?php echo $place['Place']['id']; ?>].setMap(googleMap);
 	</tr>
 <?php endforeach; ?> 
 	</table>
-
+<br><br>
 </div>
 </div>
 
