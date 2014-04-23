@@ -124,7 +124,7 @@ class ArticlesController extends AppController {
 	}}
 	
 	
-	public function lastpost($limit = 4) {
+	function lastpost($limit = 4) {
 
 	$articles = $this->Article->find('all', array('fields'=>array('Article.id', 'Article.title', 'Article.ts_posted'),
 							   'recursive'=>0,
