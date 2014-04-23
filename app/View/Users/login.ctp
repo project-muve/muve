@@ -6,7 +6,7 @@
 
 <h2 class="loginHeader">Login</h2>
 
-<div class="well">
+<div class="well" style="text-align:center;">
 <?php echo $this->Session->flash('auth'); ?>
 <?php echo $this->Form->create('User', array('class' => 'form-horizontal', 
 'inputDefaults'=>array(
@@ -22,7 +22,7 @@
 
 
         
-        <?php echo $this->Form->input('username', array('class' => 'form-control', 'id' => 'floatLogin')); ?>
+        <?php echo $this->Form->input('username', array('class' => 'form-control')); ?>
 
         <?php echo $this->Form->input('password', array('class' => 'form-control')); ?>
 
