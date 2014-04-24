@@ -11,7 +11,7 @@
 <?php echo $this->Form->create('User', array('class' => 'form-horizontal', 
 'inputDefaults'=>array(
 	'div'=>'control-group',
-	'label'=>array('class'=>'control-label'),
+	'label'=>array('class'=>'control-label', 'style' => 'text-align:left'),
 	'between'=>'<div class="controls">',
 	'after'=>'</div>',
 	'error' => array(
