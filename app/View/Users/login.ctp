@@ -6,7 +6,7 @@
 
 <h2 class="loginHeader">Login</h2>
 
-<div class="well" style="text-align:center;">
+<div class="well">
 <?php echo $this->Session->flash('auth'); ?>
 <?php echo $this->Form->create('User', array('class' => 'form-horizontal', 
 'inputDefaults'=>array(
