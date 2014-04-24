@@ -30,10 +30,6 @@
 			<th><?php echo $this->Paginator->sort('f_name');?></th>
 			<th><?php echo $this->Paginator->sort('l_name');?></th>
 			<th><?php echo $this->Paginator->sort('okay_email');?></th>
-			<th><?php echo $this->Paginator->sort('fbid');?></th>
-			<th><?php echo $this->Paginator->sort('twid');?></th>
-			<th><?php echo $this->Paginator->sort('fb_token');?></th>
-			<th><?php echo $this->Paginator->sort('tw_token');?></th>
 			<th><?php echo $this->Paginator->sort('admin_level');?></th>
 			<th><?php echo $this->Paginator->sort('show_prof_pic');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
@@ -48,10 +44,6 @@
 		<td><?php echo h($user['User']['f_name']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['l_name']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['okay_email']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['fbid']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['twid']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['fb_token']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['tw_token']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['admin_level']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['show_prof_pic']); ?>&nbsp;</td>
 		<td class="actions">
