@@ -7,5 +7,5 @@
 <video id="youtube"></video> -->
 
 <iframe id="ytplayer" type="text/html" width="800" height="450"
-src="https://www.youtube.com/embed/?listType=playlist&list=PLzzy8Igfmn1SHfMFOHVM6dDGQz7p1wDfg"
+src="https://www.youtube.com/embed/?listType=playlist&list=zzy8Igfmn1SHfMFOHVM6dDGQz7p1wDfg"
 frameborder="0" allowfullscreen>
