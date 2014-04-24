@@ -12,7 +12,7 @@
 'inputDefaults'=>array(
 	'div'=>'control-group',
 	'label'=>array('class'=>'control-label', 'style' => 'text-align:left'),
-	'between'=>'<div class="controls">',
+	'between'=>'<div class="controls" style="text-align:left;">', //test
 	'after'=>'</div>',
 	'error' => array(
         'attributes' => array('wrap' => 'p', 'class' => 'text-error')
