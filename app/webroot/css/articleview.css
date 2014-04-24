@@ -4,7 +4,7 @@ ol {
   margin-bottom: 10px;
 }
 
-.navi {
+.nav {
  min-height: 20px;
   margin-bottom: 20px;
   background-color: #F1B82D; /*f5f5f5 */
@@ -15,28 +15,28 @@ ol {
 }
 
 
-.navi> li {
+.nav> li {
 		text-align: left!important;
 		display:compact;
 		display: 
 		padding-left: 40px; /*80px*/
 }
-.navi > li > a {
+.nav > li > a {
   position: relative;
   display: block;
   padding: 10px 15px;
   color: #630;
 }
-.navi > li > a:hover,
-.navi > li > a:focus {
+.nav > li > a:hover,
+.nav > li > a:focus {
   text-decoration: none;
   color: #F1B82D;
 }
-.navi > li.disabled > a {
+.nav > li.disabled > a {
   color: #999;
 }
-.navi > li.disabled > a:hover,
-.navi > li.disabled > a:focus {
+.nav > li.disabled > a:hover,
+.nav > li.disabled > a:focus {
   color: #999;
   text-decoration: none;
   cursor: not-allowed;
