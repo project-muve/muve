@@ -68,5 +68,3 @@ else:
 <?php endif; ?>
 <p class="text-right"><?php echo $this->Html->link('Add to your log', array('controller' => 'user_exercises', 'action' => 'add')); ?> </p>
 </div>
-
-<?php print_r($user); ?>
