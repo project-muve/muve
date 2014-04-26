@@ -1,4 +1,3 @@
-
 <div class="articles index row">
 <div class="actions span2">
 	<ul class="nav nav-list">
@@ -14,11 +13,12 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th><?php echo $this->Paginator->sort('title');?></th>
+			<th class="actions"><?php echo __('Actions');?></th>
 			<th><?php echo $this->Paginator->sort('description');?></th>
 			<th><?php echo $this->Paginator->sort('ts_posted');?></th>
 			<th><?php echo $this->Paginator->sort('ts_updated');?></th>
 			<th>Tags</th>
-			<th class="actions"><?php echo __('Actions');?></th>
+			
 	</tr>
 	<?php
 	foreach ($articles as $article): ?>
@@ -28,14 +28,6 @@
 			<?php echo $this->Html->link($article['User']['f_name'] . ' ' . $article['User']['l_name'], array('controller' => 'users', 'action' => 'view', $article['User']['id'])); ?>
 		</td>
 		<td><?php echo h($article['Article']['title']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['description']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['ts_posted']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['ts_updated']); ?>&nbsp;</td>
-		<td>
-		<?php foreach($article['ArticleTag'] as $tag): ?>
-		<span class="label"><?php echo $tag['tag']; ?></span><br />
-		<?php endforeach; ?>
-
 		<td class="actions">
 			<div class="btn-toolbar">
 				<div class="btn-group">
@@ -45,6 +37,14 @@
 				</div>
 			</div>
 		</td>
+		<td><?php echo h($article['Article']['description']); ?>&nbsp;</td>
+		<td><?php echo h($article['Article']['ts_posted']); ?>&nbsp;</td>
+		<td><?php echo h($article['Article']['ts_updated']); ?>&nbsp;</td>
+		<td>
+		<?php foreach($article['ArticleTag'] as $tag): ?>
+		<span class="label"><?php echo $tag['tag']; ?></span><br />
+		<?php endforeach; ?>
+
 	</tr>
 <?php endforeach; ?>
 	</table>

@@ -18,6 +18,7 @@
 }
 
  .well {
+ 	text-align:left;
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;

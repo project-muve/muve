@@ -17,9 +17,19 @@
 		<?php echo $title_for_layout; ?>
 		| MUVE
 	</title>
+	<!-- Include the core jQuery and jQuery UI -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	
+	
+	
+	<!-- files for Video manager -->
+	<?php echo $this->Html->script('osmcompress'); ?>
+	<?php echo $this->Html->css('darkhive'); ?>
+	<?php echo $this->Html->css('osmplayer'); ?>
+	<?php echo $this->Html->script('osmdefault'); ?>
+	
 	<?php
 		echo $this->Html->meta('icon');
 
