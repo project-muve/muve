@@ -38,7 +38,7 @@ else:
 <?php endif; ?>
 
 <p class="text-right"><?php echo $this->Html->link(__('Start a Group'), array('controller' => 'groups', 'action' => 'add')); ?> </p>
-
+</div>
 <h2>My Log</h2>
 <?php if (sizeof($user['UserExercise'])): ?>
 
