@@ -21,7 +21,7 @@ echo $this->Html->script('jquery.datetimepicker.js');
 		}
 		echo $this->Form->input('exercise_id', array('class' => 'form-field'));
 		echo $this->Form->input('ts_completed', array('class' => 'form-field','type'=>'text','label'=>array('class'=>'control-label','text'=>'When')));
-		echo $this->Form->input('duration', array('class' => 'form-field','type'=>'text'));
+		echo $this->Form->input('duration', array('class' => 'form-field','type'=>'text','label'=>array('class'=>'control-label','text'=>'Duration (Hours:Minutes)')));
 		echo $this->Form->input('amount', array('class' => 'form-field'));
 	?>
 		<div class="submit-container">

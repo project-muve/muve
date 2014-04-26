@@ -7,7 +7,6 @@
 	<ul class="nav nav-list">
         <li class="nav-header"><?php echo __('Actions'); ?></li>
 		<li><?php echo $this->Html->link(__('Add MUve Tool'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->element('wrcFacebook'); ?></li>
 	</ul>
 <?php endif; ?>
 

@@ -8,7 +8,7 @@
 			</a>
 			<ul class="dropdown-menu">
 					<li>
-						<?php echo $this->Html-> link( 'My Profile', array( 'controller' => 'users', 'action' => 'view', $userData['id'] ) ); ?>
+						<?php echo $this->Html-> link( 'My Profile', array( 'controller' => 'users', 'action' => 'profile' ) ); ?>
 					</li>
 					<li>
 						<?php echo $this->Html-> link( 'Logout', array( 'controller' => 'users', 'action' => 'logout' ) ); ?>

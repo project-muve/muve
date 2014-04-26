@@ -11,20 +11,20 @@
 	'error' => array(
         'attributes' => array('wrap' => 'p', 'class' => 'text-error')
     )))); ?>
-	<h2 class="loginHeader">Register!</h2>
+	<h2 class="loginHeader">Register</h2>
 	<fieldset>
 	<?php
 		echo $this->Form->input('username');
 		echo $this->Form->input('email');
 		echo $this->Form->input('password');
-		echo $this->Form->input('password2',array('label'=>'Confirm Password','type'=>'password'));
-		echo $this->Form->input('f_name',array('label'=>'First Name'));
-		echo $this->Form->input('l_name',array('label'=>'Last Name'));
+		echo $this->Form->input('password2',array('label'=>array('class'=>'control-label','text'=>'Confirm Password'),'type'=>'password'));
+		echo $this->Form->input('f_name',array('label'=>array('class'=>'control-label','text'=>'First Name')));
+		echo $this->Form->input('l_name',array('label'=>array('class'=>'control-label','text'=>'Last Name')));
 		echo $this->Form->input('okay_email',array('label'=>'May we send you promotional emails about MUVE and The Wellness Center?'));
 	?>
 		<div class="form-actions">
-<?php echo $this->Form->submit(__('Register'),array('class'=>'submit-button','div'=>false));?>
-<?php echo $this->Html->link(__('Cancel'),array('controller' => 'groups', 'action' => 'index'),array('class'=>'submit-button'));?>
+<?php echo $this->Form->submit(__('Register'),array('class'=>'btn btn-primary','div'=>false));?>
+<?php echo $this->Html->link(__('Cancel'),array('controller' => 'groups', 'action' => 'index'),array('class'=>'btn'));?>
 		</div>
 		</fieldset>
 <?php echo $this->Form->end();?>

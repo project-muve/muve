@@ -85,13 +85,7 @@ public function login() {
 		$user=$this->User->find('first', $options);
 		$this->User->create($user);
 		$this->set('user', $user );
-				$Email = new CakeEmail();
-				$Email->from(array('MUVE@missouri.edu' => 'MUVE'))
-					->sender('MUVE@missouri.edu', 'MUVE')
-					//->to($this->User['email'])
-					->to('bar535@mail.missouri.edu')
-					->subject('Welcome to MUVE')
-					->send('Welcome to MUVE');
+
 	//Check for Facebook Account
 	$extended_token=$this->facebookAuthenticate();
 	if ($extended_token != null)

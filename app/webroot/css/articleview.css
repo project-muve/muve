@@ -4,7 +4,7 @@ ol {
   margin-bottom: 10px;
 }
 
-.nav {
+.nav, #side {
  min-height: 20px;
   margin-bottom: 20px;
   background-color: #F1B82D; /*f5f5f5 */
@@ -15,11 +15,11 @@ ol {
 }
 
 
-.nav2> li {
+.nav > li {
 		text-align: left!important;
 		display:compact;
 		display: 
-		padding-left: 80px; /*80px*/
+		padding-left: 40px; /*80px*/
 }
 .nav > li > a {
   position: relative;

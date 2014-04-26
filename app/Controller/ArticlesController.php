@@ -101,7 +101,21 @@ class ArticlesController extends AppController {
 		$users = $this->Article->User->find('list');
 		$this->set(compact('users'));
 	}
+/*     Function to display most recent article posts!      */
+public function lastpost($limit = 4) {
 
+	$articles = $this->Article->find('all', array('fields'=>array('Article.id', 'Article.title', 'Article.ts_posted'),
+							   'recursive'=>0,
+							   'order'=>array('Article.ts_posted description'),
+							   'limit'=>$limit));
+ 
+	if(isset($this->params['requested']))
+	{
+		return $articles;
+	}
+ 
+	$this->set('lastpost', $articles);
+}
 /**
  * delete method
  *
@@ -124,17 +138,4 @@ class ArticlesController extends AppController {
 	}}
 	
 	
-	function lastpost($limit = 4) {
-
-	$articles = $this->Article->find('all', array('fields'=>array('Article.id', 'Article.title', 'Article.ts_posted'),
-							   'recursive'=>0,
-							   'order'=>array('Article.ts_posted description'),
-							   'limit'=>$limit));
- 
-	if(isset($this->params['requested']))
-	{
-		return $articles;
-	}
- 
-	$this->set('lastpost', $articles);
-}
+  
