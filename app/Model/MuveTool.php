@@ -17,7 +17,7 @@ public $useTable = 'muve_tools';
 
 public function beforeSave($options = array()) {
     if (!empty($this->data['MuveTool']['url'])) {
-		if (stristr($this->data['MuveTool']['url'],'http'))
+		if (!stristr($this->data['MuveTool']['url'],'http'))
 		{
 			$this->data['MuveTool']['url']='http://' . $this->data['MuveTool']['url'];
 		}
