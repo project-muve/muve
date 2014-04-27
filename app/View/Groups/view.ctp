@@ -35,6 +35,16 @@
 			<?php echo h($group['Group']['description']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Visible'); ?></dt>
+		<dd>
+			<?php echo h($group['Group']['visible']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Open to Join'); ?></dt>
+		<dd>
+			<?php echo h($group['Group']['open_to_join']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('User'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($group['User']['id'], array('controller' => 'users', 'action' => 'view', $group['User']['id'])); ?>

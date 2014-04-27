@@ -64,10 +64,10 @@ class DATABASE_CONFIG {
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'localhost',
-		'login' => 'root',
-		'password' => '',
-		'database' => 'muve',
+		'host' => 'dbhost-mysql.cs.missouri.edu',
+		'login' => 'tek8t2',
+		'password' => 'a4Q8Weph',
+		'database' => 'tek8t2',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);

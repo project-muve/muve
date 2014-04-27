@@ -17,6 +17,8 @@
 			<th><?php echo $this->Paginator->sort('group_name');?></th>
 			<th><?php echo $this->Paginator->sort('privacy');?></th>
 			<th><?php echo $this->Paginator->sort('description');?></th>
+			<th><?php echo $this->Paginator->sort('visible');?></th>
+			<th><?php echo $this->Paginator->sort('open_to_join');?></th>
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
@@ -27,6 +29,8 @@
 		<td><?php echo h($group['Group']['group_name']); ?>&nbsp;</td>
 		<td><?php echo h($group['Group']['privacy']); ?>&nbsp;</td>
 		<td><?php echo h($group['Group']['description']); ?>&nbsp;</td>
+		<td><?php echo h($group['Group']['visible']); ?>&nbsp;</td>
+		<td><?php echo h($group['Group']['open_to_join']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($group['User']['id'], array('controller' => 'users', 'action' => 'view', $group['User']['id'])); ?>
 		</td>
