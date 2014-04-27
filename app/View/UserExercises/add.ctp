@@ -12,6 +12,7 @@ echo $this->Html->script('jquery.datetimepicker.js');
 <?php echo $this->Html->css('form'); ?>
 <div class="userExercises span10">
 <?php echo $this->Form->create('UserExercise', array('class' => 'form-container'));?>
+
 		<h2>Complete your Exercise Log!</h2>
 	<fieldset>
 	<?php
@@ -19,7 +20,7 @@ echo $this->Html->script('jquery.datetimepicker.js');
 		{
 			echo $this->Form->input('user_id', array('class' => 'form-field','default'=>$userData['id']));
 		}
-		echo $this->Form->input('exercise_id', array('class' => 'form-field'));
+		echo $this->Form->input('exercise_id', array('class' => 'form-field','empty'=>true,'required'=>true));
 		echo $this->Form->input('ts_completed', array('class' => 'form-field','type'=>'text','label'=>array('class'=>'control-label','text'=>'When')));
 		echo $this->Form->input('duration', array('class' => 'form-field','type'=>'text','label'=>array('class'=>'control-label','text'=>'Duration (Hours:Minutes)')));
 		echo $this->Form->input('amount', array('class' => 'form-field'));
@@ -33,7 +34,10 @@ echo $this->Html->script('jquery.datetimepicker.js');
 </div>
 </div>
 <script>
+var exercises = <?php echo json_encode($exerciseData); ?>;
 $(function() {
 $('#UserExerciseTsCompleted').datetimepicker({format:'Y-m-d H:i:s'});
+
 });
+$('#UserExerciseExerciseId').change(function(){$('label[for="UserExerciseAmount"]').text('Amount (' + exercises[$('#UserExerciseExerciseId').val()]['units'] + ')');});
 </script>
