@@ -81,6 +81,14 @@ class UserExercisesController extends AppController {
 		}
 
 		$exercises = $this->UserExercise->Exercise->find('list');
+
+		$exerciseData=array();
+		
+		foreach($this->UserExercise->Exercise->find('all',array('recursive'=>0))as $exercise)
+		{
+			$exerciseData[$exercise['Exercise']['id']]=$exercise['Exercise'];
+		}
+		$this->set('exerciseData', $exerciseData);
 		$users = $this->UserExercise->User->find('list');
 		$this->set(compact('exercises','users'));
 	}
