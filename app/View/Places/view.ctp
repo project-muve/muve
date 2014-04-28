@@ -1,6 +1,7 @@
+<?php echo $this->Html->css('placeView'); ?>
 <div itemscope itemtype="http://schema.org/Place">
 <div class="row-fluid"><div class="offset2">
-		<h2 itemprop="name"><?php echo h($place['Place']['name']); ?></h2>
+		<h2 class="mapHeader" itemprop="name"><?php echo h($place['Place']['name']); ?></h2>
 </div>
 </div>
 <div class="places view row-fluid">
@@ -49,14 +50,14 @@
     <meta itemprop="latitude" content="	<?php echo $place['Place']['latitude']; ?>" />
     <meta itemprop="longitude" content="<?php echo $place['Place']['longitude']; ?>" />
   </div>
-  <h2>Description:</h2>
+  <h2 class="placeHeader">Description:</h2>
   <span itemprop="description"><?php echo $place['Place']['description']; ?></span>
 <hr />
   <address>
-  	<h2>Address:</h2>
+  	<h2 class="placeHeader">Address:</h2>
 	<?php echo $place['Place']['address']; ?>
   </address>
-  <h2>Website:</h2>
+  <h2 class="placeHeader">Website:</h2>
   <?php if (!empty($place['Place']['url'])){ echo $this->Html->link('Website',$place['Place']['url']); } ?>
 </div>
 </div>
