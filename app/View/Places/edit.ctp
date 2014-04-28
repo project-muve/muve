@@ -1,4 +1,4 @@
-<div class="places row">
+<div class="places row-fluid">
 <div class="actions span2">
 	<ul class="nav nav-list">
         <li class="nav-header"><?php echo __('Actions'); ?></li>

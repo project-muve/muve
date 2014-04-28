@@ -1,4 +1,4 @@
-<div class="places index row">
+<div class="places index row-fluid">
 <div class="actions span2">
 	<ul class="nav nav-list">
 		<li class="nav-header" style="color:#F1B82D;"><?php echo __('Actions'); ?></li>
@@ -48,7 +48,7 @@ marker[<?php echo $place['Place']['id']; ?>].setMap(googleMap);
 
 	<?php echo $this->Html->css('table', array('inline' => false)); ?>
 	<?php if ($canEdit): ?>
-	<table class="placesTables">
+	<table class="table table-bordered table-striped">
 	<tr>
 			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
