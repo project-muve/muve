@@ -4,7 +4,15 @@
 <div class="well">
 	<div class="row-fluid">
 		<div class="span3">
-			<img class="thumbnail" src="http://placehold.it/150x150" />
+			<?php if (!empty($user['User']['fb_id']))
+			{
+			echo '<img class="thumbnail" src="https://graph.facebook.com/'.$user['User']['fb_id']. '/picture?width=150&height=150">';
+			}
+			else
+			{
+			echo '<img class="thumbnail" src="http://placehold.it/150x150" />';
+			}
+			?>
 		</div>
 		<div class="span9">
 			<p><strong>My Name: </strong><?php echo $user['User']['fullName']; ?></p>
