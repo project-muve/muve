@@ -35,6 +35,16 @@
 			<?php echo h($group['Group']['description']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Visible'); ?></dt>
+		<dd>
+			<?php echo h($group['Group']['visible']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Open to Join'); ?></dt>
+		<dd>
+			<?php echo h($group['Group']['open_to_join']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('User'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($group['User']['id'], array('controller' => 'users', 'action' => 'view', $group['User']['id'])); ?>
@@ -125,8 +135,8 @@
 			<td><?php echo $user['f_name'];?></td>
 			<td><?php echo $user['l_name'];?></td>
 			<td><?php echo $user['okay_email'];?></td>
-			<td><?php echo $user['fbid'];?></td>
-			<td><?php echo $user['twid'];?></td>
+			<td><?php echo $user['fb_id'];?></td>
+			<td><?php echo $user['tw_id'];?></td>
 			<td><?php echo $user['fb_token'];?></td>
 			<td><?php echo $user['tw_token'];?></td>
 			<td><?php echo $user['admin_level'];?></td>

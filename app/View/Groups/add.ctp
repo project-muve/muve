@@ -18,6 +18,8 @@
 		echo $this->Form->input('group_name');
 		echo $this->Form->input('privacy');
 		echo $this->Form->input('description');
+		echo $this->Form->input('visible');
+		echo $this->Form->input('open_to_join');
 		echo $this->Form->input('user_id');
 		echo $this->Form->input('User');
 	?>

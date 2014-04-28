@@ -20,7 +20,7 @@ if (sizeof($user['Group'])):
 	foreach ($user['Group'] as $group): ?>
 	<div class="span3">
 
-		<h3><?php echo $this->Html->link($group['name'], array('controller' => 'groups', 'action' => 'view', $group['id'])); ?></h3>
+		<h3><?php echo $this->Html->link($group['group_name'], array('controller' => 'groups', 'action' => 'view', $group['id'])); ?></h3>
 <img class="thumbnail" src="http://placehold.it/150x150" />
 		<td><?php echo $group['description'];?></td>
 
@@ -38,7 +38,7 @@ else:
 <?php endif; ?>
 
 <p class="text-right"><?php echo $this->Html->link(__('Start a Group'), array('controller' => 'groups', 'action' => 'add')); ?> </p>
-
+</div>
 <h2>My Log</h2>
 <?php if (sizeof($user['UserExercise'])): ?>
 
