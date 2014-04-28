@@ -77,7 +77,6 @@ class GroupsController extends AppController {
 			}
 		}
 		$users = $this->Group->User->find('list');
-		$users = $this->Group->User->find('list');
 		$this->set(compact('users', 'users'));
 	}
 

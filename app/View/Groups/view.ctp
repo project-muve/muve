@@ -135,8 +135,8 @@
 			<td><?php echo $user['f_name'];?></td>
 			<td><?php echo $user['l_name'];?></td>
 			<td><?php echo $user['okay_email'];?></td>
-			<td><?php echo $user['fbid'];?></td>
-			<td><?php echo $user['twid'];?></td>
+			<td><?php echo $user['fb_id'];?></td>
+			<td><?php echo $user['tw_id'];?></td>
 			<td><?php echo $user['fb_token'];?></td>
 			<td><?php echo $user['tw_token'];?></td>
 			<td><?php echo $user['admin_level'];?></td>
