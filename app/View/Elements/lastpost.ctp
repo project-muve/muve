@@ -3,7 +3,7 @@
 $articles = $this->requestAction('articles/lastpost/3');
 ?>
  
-<h3>Latest posts:</h3>
+<h3 style="color:#F1B82D;">Latest posts:</h3>
  
 <ul>
 <?php foreach($articles as $article): ?>
