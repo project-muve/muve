@@ -54,7 +54,7 @@
 		echo $this->Paginator->next(__('next') . ' >', array('class' => 'next btn'), null, array('class' => 'next disabled btn'));
 	?>
 	</div>
-	<?php echo $this->Html->link(__('New Article'), array('action' => 'add'), array('class'=>'btn btn-primary')); ?>
+	<?php echo $this->Html->link(__('New Article'), array('action' => 'add'), array('class'=>'submit-button')); ?>
 </div>
 </div>
 

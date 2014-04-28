@@ -7,8 +7,6 @@
 	<div class="actions span2">
 		<ul class="nav nav-list">
 			<li class="nav-header"><?php echo __('Actions'); ?></li>
-		<li><?php echo $this->Html->link(__('Edit Place'), array('action' => 'edit', $place['Place']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Place'), array('action' => 'delete', $place['Place']['id']), null, __('Are you sure you want to delete # %s?', $place['Place']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Places'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Place'), array('action' => 'add')); ?> </li>
 		</ul>

@@ -7,6 +7,53 @@
  *
  * Designed and built with all the love in the world by @mdo and @fat.
  */
+.submit-button {
+   border: 1px solid #000000;
+   background: #f1ba2d;
+   background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f1ba2d));
+   background: -webkit-linear-gradient(top, #ffffff, #f1ba2d);
+   background: -moz-linear-gradient(top, #ffffff, #f1ba2d);
+   background: -ms-linear-gradient(top, #ffffff, #f1ba2d);
+   background: -o-linear-gradient(top, #ffffff, #f1ba2d);
+   background-image: -ms-linear-gradient(top, #ffffff 0%, #f1ba2d 100%);
+   -webkit-border-radius: 14px;
+   -moz-border-radius: 14px;
+   border-radius: 14px;
+   -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   text-shadow: #ffffff 0 1px 0;
+   color: #000000;
+   font-family: helvetica, serif;
+   padding: 8.5px 18px;
+   font-size: 14px;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.submit-button:hover {
+   border: 2px solid #000000;
+   text-shadow: #000000 0 1px 0;
+   background: #ffffff;
+   background: -webkit-gradient(linear, left top, left bottom, from(#f1ba2d), to(#ffffff));
+   background: -webkit-linear-gradient(top, #f1ba2d, #ffffff);
+   background: -moz-linear-gradient(top, #f1ba2d, #ffffff);
+   background: -ms-linear-gradient(top, #f1ba2d, #ffffff);
+   background: -o-linear-gradient(top, #f1ba2d, #ffffff);
+   background-image: -ms-linear-gradient(top, #f1ba2d 0%, #ffffff 100%);
+   color: #ffffff;
+   }
+.submit-button:active {
+   text-shadow: #ffffff 0 1px 0;
+   border: 2px solid #000000;
+   background: #f1ba2d;
+   background: -webkit-gradient(linear, left top, left bottom, from(#F1B82D), to(#ffffff));
+   background: -webkit-linear-gradient(top, #F1B82D, #f1ba2d);
+   background: -moz-linear-gradient(top, #F1B82D, #f1ba2d);
+   background: -ms-linear-gradient(top, #F1B82D, #f1ba2d);
+   background: -o-linear-gradient(top, #F1B82D, #f1ba2d);
+   background-image: -ms-linear-gradient(top, #F1B82D 0%, #f1ba2d 100%);
+   color: #fff;
+   }
 
 .clearfix {
   *zoom: 1;

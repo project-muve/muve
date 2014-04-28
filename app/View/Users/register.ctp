@@ -1,4 +1,4 @@
-<?php $this->Html->css(array('form','login')); ?>
+<?php echo $this->Html->css(array('form','login')); ?>
 
 <div class="users row-fluid">
 <div class="users span4 offset4">
@@ -23,8 +23,8 @@
 		echo $this->Form->input('okay_email',array('label'=>'May we send you promotional emails about MUVE and The Wellness Center?'));
 	?>
 		<div class="form-actions">
-<?php echo $this->Form->submit(__('Register'),array('class'=>'btn btn-primary','div'=>false));?>
-<?php echo $this->Html->link(__('Cancel'),array('controller' => 'groups', 'action' => 'index'),array('class'=>'btn'));?>
+<?php echo $this->Form->submit(__('Register'),array('class'=>'submit-button','div'=>false));?>
+<?php echo $this->Html->link(__('Cancel'),array('controller' => 'groups', 'action' => 'index'),array('class'=>'submit-button'));?>
 		</div>
 		</fieldset>
 <?php echo $this->Form->end();?>
