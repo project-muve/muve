@@ -1,7 +1,7 @@
 <div class="container">
-<h1>My Profile</h1>
+<h1 class="profHead">My Profile</h1>
 
-<div class="well">
+<div class="well" id="bgcolor">
 	<div class="row-fluid">
 		<div class="span3">
 			<?php if (!empty($user['User']['fb_id']))
@@ -21,7 +21,7 @@
 	</div>
 </div>
 
-<h2>My Groups</h2>
+<h2 class="profHead">My Groups</h2>
 <div class="row-fluid">
 <?php
 if (sizeof($user['Group'])):
@@ -47,7 +47,7 @@ else:
 
 <p class="text-right"><?php echo $this->Html->link(__('Start a Group'), array('controller' => 'groups', 'action' => 'add')); ?> </p>
 
-<h2>My Log</h2>
+<h2 class="profHead">My Log</h2>
 <?php if (sizeof($user['UserExercise'])): ?>
 
 		<?php foreach ($user['UserExercise'] as $userExercise): ?>
