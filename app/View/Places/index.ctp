@@ -36,7 +36,7 @@ marker[<?php echo $place['Place']['id']; ?>].setMap(googleMap);
 
 
    infowindow[<?php echo $place['Place']['id']; ?>] = new google.maps.InfoWindow({
-      content: '<p class="lead"><?php echo $place['Place']['name']; ?></p><small class="rating">    	<?php for ($i=1;$i<=$place['Place']['aggregateRating']; $i++): ?>			<span>★</span>			<?php endfor; for ($i=$place['Place']['aggregateRating']; $i<5; $i++): ?>			<span>☆</span>			<?php endfor; ?>		</small>            <?php echo $this->Html->link("Learn More", array('action' => 'view', $place['Place']['id'])); ?>'
+      content: '<p class="lead"><?php echo $place['Place']['name']; ?></p><?php echo $this->Html->link("Learn More", array('action' => 'view', $place['Place']['id'])); ?>'
   });
 
   google.maps.event.addListener(marker[<?php echo $place['Place']['id']; ?>], 'click', function() {

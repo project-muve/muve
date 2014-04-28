@@ -20,6 +20,7 @@
 		?>
 
 		<div style="width:100%;height:600px;" id="map-canvas"></div>
+		<br />
 <div class="fb-comments"></div>
 		<script>
 		function placeMarkers(){
