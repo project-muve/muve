@@ -73,10 +73,10 @@ class UserExercisesController extends AppController {
 				$this->UserExercise->set('user_id', $this->Auth->user('id'));
 			}
 			if ($this->UserExercise->save($this->request->data)) {
-				$this->Session->setFlash(__('The user exercise has been saved.'));
+				$this->Session->setFlash(__('The user exercise has been saved.'),'flashSuccess');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user exercise could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The user exercise could not be saved. Please, try again.'),'flashFailure');
 			}
 		}
 
@@ -106,10 +106,10 @@ class UserExercisesController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->UserExercise->save($this->request->data)) {
-				$this->Session->setFlash(__('The user exercise has been saved.'));
+				$this->Session->setFlash(__('The user exercise has been saved.'),'flashSuccess');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user exercise could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The user exercise could not be saved. Please, try again.'),'flashFailure');
 			}
 		} else {
 			$options = array('conditions' => array('UserExercise.' . $this->UserExercise->primaryKey => $id));
@@ -134,9 +134,9 @@ class UserExercisesController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->UserExercise->delete()) {
-			$this->Session->setFlash(__('The user exercise has been deleted.'));
+			$this->Session->setFlash(__('The user exercise has been deleted.'),'flashSuccess');
 		} else {
-			$this->Session->setFlash(__('The user exercise could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The user exercise could not be deleted. Please, try again.'),'flashFailure');
 		}
 		return $this->redirect(array('action' => 'index'));
 	}}
