@@ -105,6 +105,10 @@ class UserExercisesController extends AppController {
 			throw new NotFoundException(__('Invalid user exercise'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
+			if (!$this->userHasPermission($this->Auth->user(),PERMISSION_EXERCISES))
+			{
+				$this->UserExercise->set('user_id', $this->Auth->user('id'));
+			}
 			if ($this->UserExercise->save($this->request->data)) {
 				$this->Session->setFlash(__('This exercise entry has been updated.'),'flashSuccess');
 				return $this->redirect(array('action' => 'index'));
@@ -117,7 +121,16 @@ class UserExercisesController extends AppController {
 		}
 
 		$exercises = $this->UserExercise->Exercise->find('list');
-		$this->set(compact('exercises'));
+
+		$exerciseData=array();
+		
+		foreach($this->UserExercise->Exercise->find('all',array('recursive'=>0))as $exercise)
+		{
+			$exerciseData[$exercise['Exercise']['id']]=$exercise['Exercise'];
+		}
+		$this->set('exerciseData', $exerciseData);
+		$users = $this->UserExercise->User->find('list');
+		$this->set(compact('exercises','users'));
 	}
 
 /**
