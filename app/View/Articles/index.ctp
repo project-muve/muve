@@ -58,5 +58,6 @@
 	</div>
 	<?php echo $this->Html->link(__('New Article'), array('action' => 'add'), array('class'=>'submit-button')); ?>
 </div>
+<br>
 </div>
 
