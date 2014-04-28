@@ -35,7 +35,7 @@
 				</div>
 			</div>
 		</td>
-		<td><?php echo strip_tags($article['Article']['description']); ?>&nbsp;</td>
+		<td><?php echo substr(strip_tags($article['Article']['description']),0,100); ?>&nbsp;</td>
 		<td><?php echo h($article['Article']['ts_posted']); ?>&nbsp;</td>
 		<td><?php echo h($article['Article']['ts_updated']); ?>&nbsp;</td>
 		<td>
