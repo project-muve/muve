@@ -187,7 +187,7 @@ public function login() {
 				$Email = new CakeEmail();
 				$Email->from(array('MUVE@missouri.edu' => 'MUVE'))
 					->sender('MUVE@missouri.edu', 'MUVE')
-					->to($this->request->data['email'])
+					->to($this->request->data['User']['email'])
 					->subject('Welcome to MUVE')
 					->send('Welcome to MUVE');
 				if ($this->Auth->login()) {
