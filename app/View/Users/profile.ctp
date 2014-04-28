@@ -1,3 +1,4 @@
+<?php echo $this->Html->css('profile'); ?>
 <div class="container">
 <h1 class="profHead">My Profile</h1>
 
