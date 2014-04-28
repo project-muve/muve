@@ -24,7 +24,7 @@
 	?>
 		<div class="form-actions">
 <?php echo $this->Form->submit(__('Register'),array('class'=>'submit-button','div'=>false));?>
-<?php echo $this->Html->link(__('Cancel'),array('controller' => 'groups', 'action' => 'index'),array('class'=>'btn'));?>
+<?php echo $this->Html->link(__('Cancel'),array('controller' => 'groups', 'action' => 'index'),array('class'=>'submit-button'));?>
 		</div>
 		</fieldset>
 <?php echo $this->Form->end();?>
