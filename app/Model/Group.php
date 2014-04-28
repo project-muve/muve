@@ -9,6 +9,8 @@ App::uses('AppModel', 'Model');
  */
 class Group extends AppModel {
 
+	
+
 /**
  * Validation rules
  *
@@ -96,5 +98,11 @@ class Group extends AppModel {
 			'finderQuery' => '',
 		)
 	);
-
+public function afterSave($created, $saved)
+{
+if ($created)
+{
+$this->GroupsUser->save(array('GroupsUser'=>array('user_id'=>$this->data['Group']['user_id'],'is_admin'=>true,'group_id'=>$this->data['Group']['id'])));
+}
+}
 }

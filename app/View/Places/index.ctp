@@ -1,4 +1,4 @@
-<div class="places index row">
+<div class="places index row-fluid">
 <div class="actions span2">
 	<ul class="nav nav-list">
 		<li class="nav-header" style="color:#F1B82D;"><?php echo __('Actions'); ?></li>
@@ -36,7 +36,7 @@ marker[<?php echo $place['Place']['id']; ?>].setMap(googleMap);
 
 
    infowindow[<?php echo $place['Place']['id']; ?>] = new google.maps.InfoWindow({
-      content: '<p class="lead"><?php echo $place['Place']['name']; ?></p><small class="rating">    	<?php for ($i=1;$i<=$place['Place']['aggregateRating']; $i++): ?>			<span>★</span>			<?php endfor; for ($i=$place['Place']['aggregateRating']; $i<5; $i++): ?>			<span>☆</span>			<?php endfor; ?>		</small>            <?php echo $this->Html->link("Learn More", array('action' => 'view', $place['Place']['id'])); ?>'
+      content: '<p class="lead"><?php echo $place['Place']['name']; ?></p><?php echo $this->Html->link("Learn More", array('action' => 'view', $place['Place']['id'])); ?>'
   });
 
   google.maps.event.addListener(marker[<?php echo $place['Place']['id']; ?>], 'click', function() {
@@ -48,7 +48,7 @@ marker[<?php echo $place['Place']['id']; ?>].setMap(googleMap);
 
 	<?php echo $this->Html->css('table', array('inline' => false)); ?>
 	<?php if ($canEdit): ?>
-	<table class="placesTables">
+	<table class="table table-bordered table-striped">
 	<tr>
 			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
