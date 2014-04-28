@@ -2961,13 +2961,13 @@ table th[class*="span"],
   color: #ffffff;
   text-decoration: none;
   background-color: #0081c2;
-  background-image: -moz-linear-gradient(top, #F1B82D, #0077b3);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#F1B82D), to(#0077b3));
-  background-image: -webkit-linear-gradient(top, #F1B82D, #0077b3);
-  background-image: -o-linear-gradient(top, #F1B82D, #0077b3);
-  background-image: linear-gradient(to bottom, #F1B82D, #0077b3);
+  background-image: -moz-linear-gradient(top, #F1B82D, #F1B82D);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#F1B82D), to(#F1B82D));
+  background-image: -webkit-linear-gradient(top, #F1B82D, #F1B82D);
+  background-image: -o-linear-gradient(top, #F1B82D, #F1B82D);
+  background-image: linear-gradient(to bottom, #F1B82D, #F1B82D);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F1B82D', endColorstr='#F1B82D', GradientType=0);
 }
 
 .dropdown-menu > .active > a,
