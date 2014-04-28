@@ -20,17 +20,19 @@
 			<?php echo $this->Html->link($article['User']['f_name'] . ' ' . $article['User']['l_name'], array('controller' => 'users', 'action' => 'view', $article['User']['id'])); ?>
 		</td>
 		<td><?php echo h($article['Article']['title']); ?>&nbsp;</td>
-		<?php if ($canEdit): ?>
+		
 		<td class="actions">
 			<div class="btn-toolbar">
 				<div class="btn-group">
 					<?php echo $this->Html->link(__('View'), array('action' => 'view', $article['Article']['title']), array('class' => 'btn btn-mini')); ?>
+					<?php if ($canEdit): ?>
 					<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $article['Article']['id']), array('class' => 'btn btn-mini')); ?>
 					<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $article['Article']['id']), array('class' => 'btn btn-danger btn-mini'), __('Are you sure you want to delete # %s?', $article['Article']['id'])); ?>
+					<?php endif; ?>
 				</div>
 			</div>
 		</td>
-		<?php endif; ?>
+	
 		<td><?php echo substr(strip_tags($article['Article']['description']),0,100); ?>&nbsp;</td>
 		<td><?php echo h($article['Article']['ts_posted']); ?>&nbsp;</td>
 		<td><?php echo h($article['Article']['ts_updated']); ?>&nbsp;</td>
