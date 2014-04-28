@@ -115,7 +115,7 @@ public function lastpost($limit = 3) {
 
 	$article = $this->Article->find('all', array('fields'=>array('Article.id', 'Article.title', 'Article.ts_posted'),
 							   'recursive'=>0,
-							   'order'=>array('Article.ts_posted'),
+							   'order'=>array('Article.ts_posted' DESC),
 							   'limit'=>$limit));
  
 	if(isset($this->params['requested']))
