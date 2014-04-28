@@ -53,6 +53,7 @@
 		</dl>
 	</div>
 </div>
+<!--
 	<div class="row">
 		<div class="related span10 offset2">
 			<hr>
@@ -98,6 +99,38 @@
 			</table>
 	<?php endif; ?>
 
+		</div>
+	</div>
+	-->
+	<div class="row">
+		<div class="related span10 offset2">
+			<hr>
+			<h3><?php echo __('Group Exercises');?></h3>
+			<div class="btn-toolbar">
+				<?php
+			$i = 0;
+			foreach ($group['User'] as $user): ?>
+			<?php  print_r($user); if (isset($user['UserExercise'])):?>
+
+		<?php foreach ($user['UserExercise'] as $userExercise): ?>
+		<div class="media">
+			<a href="#" class="pull-left" >
+				<img class="media-object" src="http://placehold.it/45x45" />
+			</a>
+			<div class="media-body">
+			<h3 class="media-heading"><?php echo $userExercise['Exercise']['title']; ?></h3>
+			<p class="pull-left"><strong><?php echo $this->Time->nice($userExercise['ts_completed']);?></strong><br /><?php echo $userExercise['amount'];?> <?php echo $userExercise['Exercise']['units'];?></p>
+			<p class="pull-right">
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'user_exercises', 'action' => 'edit', $userExercise['id']), array('class' => 'btn btn-mini')); ?>
+				<?php echo $this->Html->link(__('Delete'), array('controller' => 'user_exercises', 'action' => 'delete', $userExercise['id']), array('class' => 'btn btn-danger btn-mini'), __('Are you sure you want to delete # %s?', $userExercise['id'])); ?>
+			</p>
+		</div>
+	</div>
+	<?php endforeach; ?>
+	
+<?php endif; ?>
+			<?php endforeach ?>
+			</div>
 		</div>
 	</div>
 	<div class="row">
