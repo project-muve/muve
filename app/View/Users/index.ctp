@@ -10,12 +10,10 @@
 	<h2><?php echo __('Users');?></h2>
 	<table class="table table-condensed" style="white-space:nowrap;">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('username');?></th>
 			<th><?php echo $this->Paginator->sort('email');?></th>
 			<th><?php echo $this->Paginator->sort('f_name');?></th>
 			<th><?php echo $this->Paginator->sort('l_name');?></th>
-			<th><?php echo $this->Paginator->sort('okay_email');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
@@ -26,9 +24,7 @@
 		<td><?php echo h($user['User']['email']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['f_name']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['l_name']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['okay_email']); ?>&nbsp;</td>
 
-		<td><?php echo h($user['User']['show_prof_pic']); ?>&nbsp;</td>
 		<td class="actions">
 			<div class="btn-toolbar">
 				<div class="btn-group">
