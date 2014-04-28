@@ -30,6 +30,7 @@ class ArticlesController extends AppController {
 	public function index() {
 		$this->Article->recursive = 1;
 		$this->set('articles', $this->Paginator->paginate());
+		$this->set('canEdit',$this->userHasPermission($this->Auth->user(),PERMISSION_TOOLS));
 	}
 
 	public function isAuthorized($user) {

@@ -1,6 +1,7 @@
 <?php echo $this->Html->css('articleview'); ?>
 <div class="articles view row" itemscope itemtype="http://schema.org/Article">
 	<div class="actions span2">
+	<?php if ($canEdit): ?>
 		<ul class="nav nav-list" style="float:left;">
 			<li class="nav-header"><?php echo __('Actions'); ?></li>
 					<li><?php echo $this->Html->link(__('Edit Article'), array('action' => 'edit', $article['Article']['id'])); ?> </li>
@@ -8,6 +9,7 @@
 		<li><?php echo $this->Html->link(__('List Articles'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Article'), array('action' => 'add')); ?> </li>
 		</ul>
+	<?php endif; ?>
 	</div>
 	
 
