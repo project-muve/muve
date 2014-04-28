@@ -119,7 +119,7 @@ public function lastpost($limit = 3) {
  
 	if(isset($this->params['requested']))
 	{
-		return $articles;
+		return $article;
 	}
  
 	$this->set('lastpost', $articles);
