@@ -110,11 +110,11 @@ class ArticlesController extends AppController {
 		$this->set(compact('users'));
 	}
 /*     Function to display most recent article posts!      */
-public function lastpost($limit = 4) {
+public function lastpost($limit = 3) {
 
-	$articles = $this->Article->find('all', array('fields'=>array('Article.id', 'Article.title', 'Article.ts_posted'),
+	$article = $this->Article->find('all', array('fields'=>array('Article.id', 'Article.title', 'Article.ts_posted'),
 							   'recursive'=>0,
-							   'order'=>array('Article.ts_posted description'),
+							   'order'=>array('Article.ts_posted'),
 							   'limit'=>$limit));
  
 	if(isset($this->params['requested']))
