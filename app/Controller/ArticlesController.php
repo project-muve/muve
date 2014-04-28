@@ -57,6 +57,7 @@ class ArticlesController extends AppController {
         throw new NotFoundException(__('Invalid article') . $title);
     }
 		$this->set('article', $article);
+		$this->set('canEdit',$this->userHasPermission($this->Auth->user(),PERMISSION_ARTICLES));
 	}
 
 /**
