@@ -9,7 +9,7 @@
  
 <?php echo $this->Html->css('mck'); ?>
 <h2 class="mckHead">My College Kitchen!</h2>
-<p class="mckPar">My College Kitchen is a youtube series designed by the <a href="http://wellness.missouri.edu/">Wellness Resource Center</a> to bring you healthy meal ideas at a low cost! Check out the videos below:
+<p class="mckPar">My College Kitchen is a youtube series designed by the <a href="http://wellness.missouri.edu/" target="_blank">Wellness Resource Center</a> to bring you healthy meal ideas at a low cost! Check out the videos below:
 <br>Click on the Playlist dropdown on the top left corner of the video to see all My College Kitchen videos!</p>
 
  <iframe allowfullscreen="allowfullscreen" frameborder="0" height="450" width="800"
