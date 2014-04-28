@@ -1,11 +1,5 @@
-<div class="articles index row">
-<div class="actions span2">
-	<ul class="nav nav-list">
-        <li class="nav-header"><?php echo __('Actions'); ?></li>
-		<li><?php echo $this->Html->link(__('New Article'), array('action' => 'add')); ?></li>
-	</ul>
-</div>
-<div class="span10">
+<div class="articles index row-fluid">
+<div class="span12">
 	<h2><?php echo __('Articles');?></h2>
 	<table class="table table-condensed" style="white-space:nowrap;">
 	<tr>
@@ -60,6 +54,7 @@
 		echo $this->Paginator->next(__('next') . ' >', array('class' => 'next btn'), null, array('class' => 'next disabled btn'));
 	?>
 	</div>
+	<?php echo $this->Html->link(__('New Article'), array('action' => 'add', 'class'=>'btn btn-primary')); ?>
 </div>
 </div>
 
