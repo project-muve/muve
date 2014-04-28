@@ -14,10 +14,10 @@
 <h4><?php echo h($banner['Banner']['title']); ?>&nbsp;</h4>
 <?php echo $this->Html->image("banners/"  . $banner['Banner']['image'],array('alt'=>$banner['Banner']['title'])); ?>
 		
-		<p><?php echo h($banner['Banner']['text']); ?>&nbsp;</p>
-		<p><?php echo h($banner['Banner']['link_text']); ?>&nbsp;</p>
-		<p><?php echo h($banner['Banner']['link_url']); ?>&nbsp;</p>
-		<p><?php echo h($banner['Banner']['published']); ?>&nbsp;</p>
+		<p><strong>Caption</strong><br /><?php echo h($banner['Banner']['text']); ?>&nbsp;</p>
+		<p><strong>Link Text</strong><br /><?php echo h($banner['Banner']['link_text']); ?>&nbsp;</p>
+		<p><strong>Link URL</strong><br /><?php echo h($banner['Banner']['link_url']); ?>&nbsp;</p>
+		<p><strong>Published</strong><br /><?php echo ($banner['Banner']['published']) ? 'Yes':'No'; ?>&nbsp;</p>
 
 			<div class="btn-toolbar">
 				<div class="btn-group">

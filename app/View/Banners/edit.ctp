@@ -8,12 +8,13 @@
 	</ul>
 </div>
 <div class="banners span10">
-<?php echo $this->Form->create('Banner', array('class' => 'form-horizontal'));?>
+<?php echo $this->Form->create('Banner', array('class' => 'form-horizontal','type'=>'file'));?>
 	<fieldset>
 		<legend><?php echo __('Edit Banner'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('image');
+		echo $this->Form->input('file',array('type'=>'file'));
+		echo $this->Form->input('image',array('type'=>'hidden'));
 		echo $this->Form->input('title');
 		echo $this->Form->input('text');
 		echo $this->Form->input('link_text');

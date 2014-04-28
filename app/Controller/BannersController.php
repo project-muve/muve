@@ -46,7 +46,7 @@ class BannersController extends AppController {
 
 
 	public function display() {
-		 $banners = $this->Banner->find('all');
+		 $banners = $this->Banner->find('all',array('conditions'=>array('published'=>true)));
 	if(isset($this->params['requested']))
 	{
 		return $banners;
@@ -83,6 +83,13 @@ class BannersController extends AppController {
 			throw new NotFoundException(__('Invalid banner'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
+			if (isset($this->request->data['Banner']['file']))
+			{
+				unlink(APP . DIRECTORY_SEPARATOR . "webroot" . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "banners" . DIRECTORY_SEPARATOR  . $this->request->data['Banner']['image']);
+				
+				$this->uploadFile();
+
+			}
 			if ($this->Banner->save($this->request->data)) {
 				$this->Session->setFlash(__('The banner has been saved.'));
 				return $this->redirect(array('action' => 'index'));
@@ -108,7 +115,10 @@ class BannersController extends AppController {
 			throw new NotFoundException(__('Invalid banner'));
 		}
 		$this->request->onlyAllow('post', 'delete');
+			$options = array('conditions' => array('Banner.' . $this->Banner->primaryKey => $id));
+			$this->request->data = $this->Banner->find('first', $options);
 		if ($this->Banner->delete()) {
+		unlink(APP . DIRECTORY_SEPARATOR . "webroot" . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "banners" . DIRECTORY_SEPARATOR  . $this->request->data['Banner']['image']);
 			$this->Session->setFlash(__('The banner has been deleted.'));
 		} else {
 			$this->Session->setFlash(__('The banner could not be deleted. Please, try again.'));
