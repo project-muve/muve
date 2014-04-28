@@ -20,7 +20,7 @@
 		echo $this->Form->input('description');
 		echo $this->Form->input('visible');
 		echo $this->Form->input('open_to_join');
-		echo $this->Form->input('user_id');
+		echo $this->Form->input('user_id',array('type'=>'hidden','default'=>$userData['id']));
 		echo $this->Form->input('User');
 	?>
 		<div class="form-actions">
