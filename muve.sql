@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1deb1
+-- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Mar 26, 2014 at 01:36 PM
--- Server version: 5.5.35
--- PHP Version: 5.3.10-1ubuntu3.10
+-- Host: 127.0.0.1
+-- Generation Time: Apr 28, 2014 at 08:52 AM
+-- Server version: 5.5.27
+-- PHP Version: 5.4.7
 
 SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `articles`
 --
 
+DROP TABLE IF EXISTS `articles`;
 CREATE TABLE IF NOT EXISTS `articles` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
@@ -40,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `title` (`title`),
   KEY `user_id_idx` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -48,12 +49,31 @@ CREATE TABLE IF NOT EXISTS `articles` (
 -- Table structure for table `article_tags`
 --
 
+DROP TABLE IF EXISTS `article_tags`;
 CREATE TABLE IF NOT EXISTS `article_tags` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `article_id` int(10) unsigned NOT NULL,
   `tag` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `articles_id_idx` (`article_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `banners`
+--
+
+DROP TABLE IF EXISTS `banners`;
+CREATE TABLE IF NOT EXISTS `banners` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `image` varchar(64) NOT NULL,
+  `title` varchar(64) NOT NULL,
+  `text` text NOT NULL,
+  `link_text` varchar(24) NOT NULL,
+  `link_url` varchar(256) NOT NULL,
+  `published` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -62,6 +82,7 @@ CREATE TABLE IF NOT EXISTS `article_tags` (
 -- Table structure for table `exercises`
 --
 
+DROP TABLE IF EXISTS `exercises`;
 CREATE TABLE IF NOT EXISTS `exercises` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `type` varchar(45) DEFAULT NULL,
@@ -69,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `exercises` (
   `description` text NOT NULL,
   `units` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -77,6 +98,7 @@ CREATE TABLE IF NOT EXISTS `exercises` (
 -- Table structure for table `groups`
 --
 
+DROP TABLE IF EXISTS `groups`;
 CREATE TABLE IF NOT EXISTS `groups` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `group_name` varchar(45) NOT NULL,
@@ -95,6 +117,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
 -- Table structure for table `groups_users`
 --
 
+DROP TABLE IF EXISTS `groups_users`;
 CREATE TABLE IF NOT EXISTS `groups_users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
@@ -112,6 +135,7 @@ CREATE TABLE IF NOT EXISTS `groups_users` (
 -- Table structure for table `group_exercises`
 --
 
+DROP TABLE IF EXISTS `group_exercises`;
 CREATE TABLE IF NOT EXISTS `group_exercises` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned DEFAULT NULL,
@@ -132,6 +156,7 @@ CREATE TABLE IF NOT EXISTS `group_exercises` (
 -- Table structure for table `milestones`
 --
 
+DROP TABLE IF EXISTS `milestones`;
 CREATE TABLE IF NOT EXISTS `milestones` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `exercises_id` int(10) unsigned NOT NULL,
@@ -147,13 +172,14 @@ CREATE TABLE IF NOT EXISTS `milestones` (
 -- Table structure for table `muve_tools`
 --
 
+DROP TABLE IF EXISTS `muve_tools`;
 CREATE TABLE IF NOT EXISTS `muve_tools` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(45) DEFAULT NULL,
   `description` text,
   `url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -161,6 +187,7 @@ CREATE TABLE IF NOT EXISTS `muve_tools` (
 -- Table structure for table `places`
 --
 
+DROP TABLE IF EXISTS `places`;
 CREATE TABLE IF NOT EXISTS `places` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `address` varchar(45) NOT NULL,
@@ -175,7 +202,7 @@ CREATE TABLE IF NOT EXISTS `places` (
   `fbid` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id_idx` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -183,6 +210,7 @@ CREATE TABLE IF NOT EXISTS `places` (
 -- Table structure for table `place_rankings`
 --
 
+DROP TABLE IF EXISTS `place_rankings`;
 CREATE TABLE IF NOT EXISTS `place_rankings` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
@@ -200,6 +228,7 @@ CREATE TABLE IF NOT EXISTS `place_rankings` (
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(16) NOT NULL,
@@ -224,6 +253,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Table structure for table `user_exercises`
 --
 
+DROP TABLE IF EXISTS `user_exercises`;
 CREATE TABLE IF NOT EXISTS `user_exercises` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
@@ -233,8 +263,8 @@ CREATE TABLE IF NOT EXISTS `user_exercises` (
   `amount` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id_idx` (`user_id`),
-  KEY `exercises_id_idx` (`exercises_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `exercises_id_idx` (`exercise_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -242,6 +272,7 @@ CREATE TABLE IF NOT EXISTS `user_exercises` (
 -- Table structure for table `user_milestones`
 --
 
+DROP TABLE IF EXISTS `user_milestones`;
 CREATE TABLE IF NOT EXISTS `user_milestones` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
@@ -305,8 +336,8 @@ ALTER TABLE `places`
 -- Constraints for table `place_rankings`
 --
 ALTER TABLE `place_rankings`
-  ADD CONSTRAINT `place_rankings_ibfk_1` FOREIGN KEY (`place_id`) REFERENCES `places` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk8_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk8_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `place_rankings_ibfk_1` FOREIGN KEY (`place_id`) REFERENCES `places` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user_exercises`

@@ -50,6 +50,9 @@
 	       <label class="checkbox">
         <input type="checkbox" value="<?php echo PERMISSION_TOOLS; ?>" <?php echo ($userData['admin_level'] & PERMISSION_TOOLS) ? ' checked ':''; ?>> Tools
       </label>
+	       <label class="checkbox">
+        <input type="checkbox" value="<?php echo PERMISSION_HOMEPAGE; ?>" <?php echo ($userData['admin_level'] & PERMISSION_HOMEPAGE) ? ' checked ':''; ?>> Homepage
+      </label>
 </fieldset>
 	</div>
 </div>

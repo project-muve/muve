@@ -13,6 +13,9 @@
 					<li>
 <?php echo $this->Html-> link( 'Edit Articles', array( 'controller' => 'articles', 'action' => 'index' ) ); ?>
 					</li>
+					<li>
+<?php echo $this->Html-> link( 'Edit Banners', array( 'controller' => 'banners', 'action' => 'index' ) ); ?>
+					</li>
 			</ul>
 		</li>
 	

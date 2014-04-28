@@ -27,6 +27,7 @@ define('PERMISSION_USEREDIT',		bindec('00000000010'));
 define('PERMISSION_PLACES',		bindec('00000000100'));
 define('PERMISSION_EXERCISES',	bindec('00000001000'));
 define('PERMISSION_TOOLS',		bindec('00000010000'));
+define('PERMISSION_HOMEPAGE',		bindec('00000100000'));
 
 class AppController extends Controller {
     public $helpers = array(
