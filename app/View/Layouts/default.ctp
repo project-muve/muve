@@ -81,7 +81,8 @@
               <?php echo $this->fetch('navbar'); ?>
             </ul>
           </div><!--/.nav-collapse -->
-                        <?php echo $this->element('UserMenu'); ?>
+                      <?php echo $this->element('AdminMenu'); ?>
+                        <?php echo $this->element('UserMenu'); ?>  
                         
         </div>
       </div>
