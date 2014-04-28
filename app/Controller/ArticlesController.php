@@ -15,6 +15,13 @@ class ArticlesController extends AppController {
  */
 	public $components = array('Paginator');
 
+	public function beforeFilter(){
+    parent::beforeFilter();
+    // Allow users to register and logout.
+    $this->Auth->allow('view');	
+		
+	}
+
 /**
  * index method
  *
@@ -50,6 +57,7 @@ class ArticlesController extends AppController {
         throw new NotFoundException(__('Invalid article') . $title);
     }
 		$this->set('article', $article);
+		$this->set('canEdit',$this->userHasPermission($this->Auth->user(),PERMISSION_ARTICLES));
 	}
 
 /**

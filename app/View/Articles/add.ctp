@@ -1,12 +1,12 @@
 <div class="articles row">
 <div class="actions span2">
+<?php if($canEdit): ?>
 	<ul class="nav nav-list">
         <li class="nav-header"><?php echo __('Actions'); ?></li>
 
 		<li><?php echo $this->Html->link(__('List Articles'), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
+	<?php endif; ?>
 </div>
 <div class="articles span10">
 <?php echo $this->Form->create('Article', array('class' => 'form-horizontal','inputDefaults'=>array('error' => array(

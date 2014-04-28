@@ -8,7 +8,7 @@
 
 <div class="well">
 <?php echo $this->Session->flash('auth'); ?>
-<?php echo $this->Form->create('User', array('class' => 'form-horizontal', 
+<?php echo $this->Form->create('User', array('class' => 'form-vertical', 
 'inputDefaults'=>array(
 	'div'=>'control-group',
 	'label'=>array('class'=>'control-label', 'style' => 'text-align:left'),
