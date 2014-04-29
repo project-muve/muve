@@ -3,5 +3,11 @@
 }
 
 #bgcolor {
-background: #F1B82D;
+  background: #ffffff;
+   background: -webkit-gradient(linear, left top, left bottom, from(#f1b82d), to(#ffffff));
+   background: -webkit-linear-gradient(top, #f1b82d, #ffffff);
+   background: -moz-linear-gradient(top, #f1b82d, #ffffff);
+   background: -ms-linear-gradient(top, #f1b82d, #ffffff);
+   background: -o-linear-gradient(top, #f1b82d, #ffffff);
+   background-image: -ms-linear-gradient(top, #f1b82d 0%, #ffffff 100%);
 }
