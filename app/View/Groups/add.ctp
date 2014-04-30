@@ -16,10 +16,10 @@
 		<legend><?php echo __('Add Group'); ?></legend>
 	<?php
 		echo $this->Form->input('group_name');
-		echo $this->Form->input('privacy');
 		echo $this->Form->input('description');
-		echo $this->Form->input('user_id');
-		echo $this->Form->input('User');
+		echo $this->Form->input('visible');
+		echo $this->Form->input('open_to_join');
+
 	?>
 		<div class="form-actions">
 <?php echo $this->Form->submit(__('Submit'),array('class'=>'btn btn-primary','div'=>false));?>
