@@ -7,8 +7,8 @@
       <!-- START THE FEATURETTES -->
 
       <hr class="featurette-divider">
-
-      <div class="featurette"><p class="lead">
+<!-- class ="lead" on p -->
+      <div class="featurette"><p>
 MUVE is a campaign brought to you by the Wellness Resource Center. The goal of this campaign is to help students, faculty and staff live healthier lives. It is designed to help you become more physically active and eat well by making healthy food choices in a supportive and motivational atmosphere.
 
 As a part of this campaign, we have created the MUVE exercise challenge beginning September 1 through to December 6. Participants log their daily amount of exercise, as well as ‘add 1‘ through positive wellness and eating choices. Throughout the challenge, prizes will be handed out for daily logs. In addition, a grand prize will be awarded to the team or individual who performed the most exercise during the entire challenge.
