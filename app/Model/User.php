@@ -149,19 +149,6 @@ public $virtualFields = array(
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'GroupExercise' => array(
-			'className' => 'GroupExercise',
-			'foreignKey' => 'user_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
 		'Group' => array(
 			'className' => 'Group',
 			'foreignKey' => 'user_id',
