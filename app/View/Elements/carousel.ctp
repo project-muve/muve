@@ -1,5 +1,5 @@
 <?php $banners =  $this->requestAction('banners/display'); ?>
- 
+ <?php echo $this->Html->css('form'); ?>
     <div id="myCarousel" class="carousel slide">
       <div class="carousel-inner">
 	<?php
@@ -11,7 +11,7 @@
             <div class="carousel-caption">
               <h1><?php echo h($banner['Banner']['title']); ?></h1>
               <p class="lead"><?php echo h($banner['Banner']['text']); ?></p>
-		    <?php echo $this->Html->link($banner['Banner']['link_text'],$banner['Banner']['link_url'],array('class'=>'btn btn-large btn-primary')); ?>
+		    <?php echo $this->Html->link($banner['Banner']['link_text'],$banner['Banner']['link_url'],array('class'=>'submit-button btn-large')); ?>
             </div>
           </div>
         </div>
