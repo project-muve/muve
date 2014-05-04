@@ -10,7 +10,7 @@
           <div class="container">
             <div class="carousel-caption">
               <h1><?php echo h($banner['Banner']['title']); ?></h1>
-              <p class="lead"><?php echo h($banner['Banner']['text']); ?></p>
+              <p class="lead"><?php echo h($banner['Banner']['text']); ?></p><br>
 		    <?php echo $this->Html->link($banner['Banner']['link_text'],$banner['Banner']['link_url'],array('class'=>'submit-button btn-large')); ?>
             </div>
           </div>
