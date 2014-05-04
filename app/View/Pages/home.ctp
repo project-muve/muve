@@ -1,11 +1,8 @@
 <div class="container ">
 <?php echo $this->element('carousel'); ?>
-</div>
+
 
  <div class="container marketing">
-
-     
-
 
       <!-- START THE FEATURETTES -->
 
@@ -43,3 +40,4 @@ Now get out there and MUVE!
       </div>
 	        <hr class="featurette-divider">
       <!-- /END THE FEATURETTES -->
+</div>
