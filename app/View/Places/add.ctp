@@ -47,9 +47,9 @@ $(function(){populateIcons();});
 		echo $this->Form->input('url');
 		echo $this->Form->input('fbid');
 	?>
-	<!-- form-actions -->
-		<div class="form-horizontal">
-<?php echo $this->Form->submit(__('Submit'),array('class'=>'submit-button','div'=>false));?> <br>
+
+		<div class="form-actions">
+<?php echo $this->Form->submit(__('Submit'),array('class'=>'submit-button','div'=>false));?> <br><br>
 <?php echo $this->Html->link(__('Cancel'),array('controller' => 'users', 'action' => 'index'),array('class'=>'submit-button'));?>
 		</div>
 		</fieldset>
